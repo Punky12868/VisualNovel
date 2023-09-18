@@ -245,7 +245,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0clear olaaaaaaa \xB0bg(1)\xB0sprite(1)\xB0name<Diego>"
+        value: "olaaaaaaa \xB0name<Diego>"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -282,6 +282,12 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 1
+        destinationConversationID: 1
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -290,7 +296,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 479.8152
-        y: 70.13753
+        y: 68.127014
         width: 160
         height: 30
     - id: 2
@@ -360,8 +366,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 479.8152
-        y: 119.05058
+        x: 318.18732
+        y: 129.5157
         width: 160
         height: 30
     - id: 3
@@ -391,7 +397,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "chaooooo \xB0bg(0)\xB0sprite(0)\xB0name<Paulo>\xB0clear"
+        value: "chaooooo \xB0fadeSPR(1)\xB0name<Paulo>"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -675,7 +681,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0name<Paulo> segundo fade \xB0fadeBG(3)"
+        value: "\xB0name<Paulo> segundo fade \xB0fadeBG(3"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -959,7 +965,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0name<???> Cuerto fade \xB0fadeBoth(0)"
+        value: "\xB0name<???> Cuerto fade \xB0fadeBoth(2,0)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -1000,7 +1006,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 479.8152
-        y: 570.1375
+        y: 569.1474
         width: 160
         height: 30
     - id: 12
@@ -1068,9 +1074,80 @@ MonoBehaviour:
         y: 620.1375
         width: 160
         height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Pictures
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: dsada
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Parenthetical
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Audio Files
+        value: '[]'
+        type: 3
+        typeString: CustomFieldType_Files
+      - title: Video File
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 13
+        destinationConversationID: 1
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 670.5128
+        y: 123.6259
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 176.66519, y: 3.8245955}
-    canvasZoom: 0.8600001
+    canvasScrollPosition: {x: 153.504, y: 0}
+    canvasZoom: 0.98000014
   syncInfo:
     syncActors: 0
     syncItems: 0

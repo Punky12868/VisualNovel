@@ -6,6 +6,9 @@ public class CommandBehaviours : MonoBehaviour
 {
     Commands commands;
     GameAssets assets;
+
+    [HideInInspector] public int fadeBG;
+    [HideInInspector] public int fadeSPR;
     private void Awake()
     {
         commands = GetComponent<Commands>();
@@ -17,20 +20,16 @@ public class CommandBehaviours : MonoBehaviour
         {
             case string a when a.Contains(commands.commandID + "bg"):
 
-                assets.currentBG.sprite = assets.backgrounds[BackGround()];
-                Debug.Log("BackGround Change: BG ID: " + BackGround());
+                int x = GetBackGroundID();
+                assets.currentBG.sprite = assets.backgrounds[x];
+                //Debug.Log("BackGround Change: BG ID: " + GetBackGroundID());
 
                 break;
             case string a when a.Contains(commands.commandID + "sprite"):
 
-                assets.currentSprite.sprite = assets.npcSrites[Sprite()];
-                Debug.Log("Npc Sprite Change: Sprite ID: " + Sprite());
-
-                break;
-            case string a when a.Contains(commands.commandID + "clear"):
-
-                int i = Clear();
-                Debug.Log("Clear (')");
+                int y = GetSpriteID();
+                assets.currentSprite.sprite = assets.npcSrites[y];
+                //Debug.Log("Npc Sprite Change: Sprite ID: " + GetSpriteID());
 
                 break;
             case string a when a.Contains(commands.commandID + "fadein"):
@@ -40,11 +39,14 @@ public class CommandBehaviours : MonoBehaviour
                 break;
             case string a when a.Contains(commands.commandID + "fadeBG"):
 
+                fadeBG = GetFadeBG_ID();
                 SpawnPanelFade.SpawnFadeInPanelBG();
 
                 break;
 
             case string a when a.Contains(commands.commandID + "fadeSPR"):
+
+                fadeSPR = GetFadeSPR_ID();
                 SpawnPanelFade.SpawnFadeInPanelSPR();
 
                 break;
@@ -53,37 +55,188 @@ public class CommandBehaviours : MonoBehaviour
                 SpawnPanelFade.SpawnFadeInPanelBoth();
 
                 break;
+
             default:
                 break;
         }
     }
-    int BackGround()
+    int GetBackGroundID()
     {
         int i;
-        string numberStr = commands.currentText.Substring(commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) + 1, commands.currentText.IndexOf(commands.substringIndexOfCommands[1]) - commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) - 1);
-        int.TryParse(numberStr, out i);
-        return i;
+        string command = commands.commandID + "bg";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse BG_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("BG_ID not found.");
+        return -1;
     }
-    int Sprite()
+    int GetSpriteID()
     {
         int i;
-        string numberStr = commands.currentText.Substring(commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) + 1, commands.currentText.IndexOf(commands.substringIndexOfCommands[1]) - commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) - 1);
-        int.TryParse(numberStr, out i);
-        return i;
+        string command = commands.commandID + "sprite";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        Debug.Log("SPR_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse SPR_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("SPR_ID not found.");
+        return -1;
     }
-    public int Fade()
+    public int GetFadeBG_ID()
     {
         int i;
-        string numberStr = commands.currentText.Substring(commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) + 1, commands.currentText.IndexOf(commands.substringIndexOfCommands[1]) - commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) - 1);
-        int.TryParse(numberStr, out i);
-        return i;
+        string command;
+        command = commands.commandID + "fadeBG";
+
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        Debug.Log("Fade_BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse Fade_BG_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("Fade_BG_ID not found.");
+        return -1;
     }
-    int Clear()
+    public int GetFadeSPR_ID()
     {
         int i;
-        string numberStr = commands.currentText.Substring(commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) + 1, commands.currentText.IndexOf(commands.substringIndexOfCommands[1]) - commands.currentText.IndexOf(commands.substringIndexOfCommands[0]) - 1);
-        int.TryParse(numberStr, out i);
-        commands.currentText = commands.currentText.Replace(commands.substringIndexOfCommands[0] + numberStr + commands.substringIndexOfCommands[1], "");
-        return i;
+        string command;
+        command = commands.commandID + "fadeSPR";
+
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        Debug.Log("Fade_SPR_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse Fade_SPR_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("Fade_SPR_ID not found.");
+        return -1;
+    }
+    public int[] GetFadeBothIDs()
+    {
+        int[] ids = new int[2];
+
+        int startIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0]);
+        int endIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1]);
+
+        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
+        {
+            string content = commands.currentText.Substring(startIndex + 1, endIndex - startIndex - 1);
+
+            string[] numberStrs = content.Split(commands.commandSeparator);
+
+            if (numberStrs.Length == 2)
+            {
+                int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                int.TryParse(numberStrs[1].Trim(), out ids[1]);
+            }
+        }
+
+        Debug.Log("Fades_IDs: " + ids);
+        return ids;
     }
 }

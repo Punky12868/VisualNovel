@@ -9,6 +9,7 @@ public class Commands : MonoBehaviour
     CommandBehaviours commandBehaviours;
 
     public char commandID;
+    public char commandSeparator;
     [SerializeField] string[] commands;
     public char[] substringIndexOfCommands;
     [SerializeField] char[] substringIndexOfName;
@@ -49,7 +50,7 @@ public class Commands : MonoBehaviour
     {
         nameOutput = currentText.Substring(currentText.IndexOf(substringIndexOfName[0]) + 1, currentText.IndexOf(substringIndexOfName[1]) - currentText.IndexOf(substringIndexOfName[0]) - 1);
         currentText = currentText.Replace(substringIndexOfName[0] + nameOutput + substringIndexOfName[1], "");
-        Debug.Log(nameOutput);
+        //Debug.Log(nameOutput);
     }
     
 }

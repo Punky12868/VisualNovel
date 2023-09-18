@@ -18,11 +18,26 @@ public class PanelFade : MonoBehaviour
     [SerializeField] float timeWindow;
 
     [HideInInspector] public int i;
+    [HideInInspector] public int[] x = new int[2];
     private void Awake()
     {
         if (fadeIn && change)
         {
-            i = FindObjectOfType<CommandBehaviours>().Fade();
+            if (!changeBoth)
+            {
+                if (changeBG)
+                {
+                    i = FindObjectOfType<CommandBehaviours>().fadeBG;
+                }
+                else
+                {
+                    i = FindObjectOfType<CommandBehaviours>().fadeSPR;
+                }
+            }
+            else
+            {
+                x = FindObjectOfType<CommandBehaviours>().GetFadeBothIDs();
+            }
         }
         panel = GetComponent<CanvasGroup>();
     }
@@ -38,25 +53,7 @@ public class PanelFade : MonoBehaviour
                 {
                     if (change)
                     {
-                        if (changeBG)
-                        {
-                            FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[i];
-                            Debug.Log("AAAA");
-                            Destroy(gameObject);
-                        }
-                        else if (changeSPR)
-                        {
-                            FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[i];
-                            Debug.Log("BBBB");
-                            Destroy(gameObject);
-                        }
-                        else if (changeBoth)
-                        {
-                            FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[i];
-                            FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[i];
-                            Debug.Log("CCCC");
-                            Destroy(gameObject);
-                        }
+                        Change();
                     }
                     else
                     {
@@ -90,5 +87,36 @@ public class PanelFade : MonoBehaviour
                 panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
             }
         }
+    }
+    void Change()
+    {
+        if (changeBG)
+        {
+            ChangeBG();
+            Destroy(gameObject);
+        }
+        else if (changeSPR)
+        {
+            ChangeSPR();
+            Destroy(gameObject);
+        }
+        else if (changeBoth)
+        {
+            ChangeBoth(x[0], x[1]);
+            Destroy(gameObject);
+        }
+    }
+    void ChangeBG()
+    {
+        FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[i];
+    }
+    void ChangeSPR()
+    {
+        FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[i];
+    }
+    void ChangeBoth(int a, int b)
+    {
+        FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[a];
+        FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[b];
     }
 }
