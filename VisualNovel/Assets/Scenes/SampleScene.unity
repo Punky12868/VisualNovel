@@ -335,15 +335,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fa43456b3467e4db4b2704cf28f43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandID: 176
   commands:
-  - "\xB0name"
-  - "\xB0bg"
-  - "\xB0sprite"
-  - "\xB0clear"
-  - "\xB0fadein"
-  - "\xB0fadeBG"
-  - "\xB0fadeSPR"
-  - "\xB0fadeBoth"
+  - name
+  - bg
+  - sprite
+  - clear
+  - fadein
+  - fadeBG
+  - fadeSPR
+  - fadeBoth
+  substringIndexOfCommands: 28002900
+  substringIndexOfName: 3c003e00
   currentText: 
   dialogueOutput: 
   nameOutput: 
