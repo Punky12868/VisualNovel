@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 602691094}
   - component: {fileID: 602691093}
   m_Layer: 5
-  m_Name: Blur
+  m_Name: BlurSPR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 975269981}
   - component: {fileID: 975269980}
   m_Layer: 5
-  m_Name: Blur
+  m_Name: BlurBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 1913360209}
   - component: {fileID: 1913360213}
   m_Layer: 5
-  m_Name: BG (1)
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
