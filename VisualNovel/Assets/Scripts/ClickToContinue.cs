@@ -34,7 +34,7 @@ public class ClickToContinue : MonoBehaviour
                 {
                     FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                     cooldown = true;
-                    Debug.Log("Continued Key Pressed");
+                    //Debug.Log("Continued Key Pressed");
                 }
             }
             
