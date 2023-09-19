@@ -1,6 +1,7 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
 using UnityEngine;
+using Febucci.UI;
 
 namespace PixelCrushers.DialogueSystem
 {
@@ -18,7 +19,8 @@ namespace PixelCrushers.DialogueSystem
         public StandardDialogueUI dialogueUI;
 
         [Tooltip("Typewriter effect to fast forward if it's not done playing.")]
-        public AbstractTypewriterEffect typewriterEffect;
+        //public AbstractTypewriterEffect typewriterEffect;
+        public TypewriterByCharacter typewriterEffect;
 
 #if USE_STM
         [Tooltip("If using SuperTextMesh, assign this instead of typewriter effect.")]
@@ -61,16 +63,16 @@ namespace PixelCrushers.DialogueSystem
         {
             if (typewriterEffect == null)
             {
-                typewriterEffect = GetComponentInChildren<UnityUITypewriterEffect>();
+                typewriterEffect = GetComponentInChildren<TypewriterByCharacter>();
             }
             continueButton = GetComponent<UnityEngine.UI.Button>();
         }
 
         public virtual void OnFastForward()
         {
-            if ((typewriterEffect != null) && typewriterEffect.isPlaying)
+            if ((typewriterEffect != null) && typewriterEffect.isShowingText)
             {
-                typewriterEffect.Stop();
+                typewriterEffect.SkipTypewriter();
             }
 #if USE_STM
             else if (superTextMesh != null && superTextMesh.reading)

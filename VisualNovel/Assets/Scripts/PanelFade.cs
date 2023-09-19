@@ -15,14 +15,19 @@ public class PanelFade : MonoBehaviour
     public bool changeBoth;
 
     [SerializeField] float lerpSpeed;
+    [SerializeField] float lerpSpeedFast;
     [SerializeField] float timeWindow;
+    [SerializeField] float timeWindowFast;
 
     [HideInInspector] public int i;
     [HideInInspector] public int[] x = new int[2];
     private void Awake()
     {
+        FindObjectOfType<ClickToContinue>().isFade = this;
         if (fadeIn && change)
         {
+            TextChange(true);
+
             if (!changeBoth)
             {
                 if (changeBG)
@@ -66,6 +71,10 @@ public class PanelFade : MonoBehaviour
                 SpawnPanelFade.SpawnFadeOutPanel();
                 panel.alpha = 1;
             }
+            else if (panel.alpha < 0 + timeWindow + timeWindowFast)
+            {
+                panel.alpha = Mathf.Lerp(panel.alpha, 1, lerpSpeedFast * Time.deltaTime);
+            }
             else
             {
                 panel.alpha = Mathf.Lerp(panel.alpha, 1, lerpSpeed * Time.deltaTime);
@@ -82,6 +91,10 @@ public class PanelFade : MonoBehaviour
             {
                 panel.alpha = 0;
             }
+            else if (panel.alpha < 0 + timeWindow + timeWindowFast)
+            {
+                panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeedFast * Time.deltaTime);
+            }
             else
             {
                 panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
@@ -90,6 +103,8 @@ public class PanelFade : MonoBehaviour
     }
     void Change()
     {
+        TextChange(false);
+
         if (changeBG)
         {
             ChangeBG();
@@ -118,5 +133,20 @@ public class PanelFade : MonoBehaviour
     {
         FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[a];
         FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[b];
+    }
+    void TextChange(bool a)
+    {
+        if (a)
+        {
+            FindObjectOfType<SetText>().Change(true);
+
+            FindObjectOfType<SetName>().Change(true);
+        }
+        else
+        {
+            FindObjectOfType<SetText>().Change(false);
+
+            FindObjectOfType<SetName>().Change(false);
+        }
     }
 }

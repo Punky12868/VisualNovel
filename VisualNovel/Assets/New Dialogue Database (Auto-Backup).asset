@@ -245,7 +245,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0clear olaaaaaaa \xB0bg(1)\xB0sprite(1)\xB0name<Diego>"
+        value: "olaaaaaaa \xB0name<Diego>"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -296,7 +296,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 479.8152
-        y: 69.14743
+        y: 68.127014
         width: 160
         height: 30
     - id: 2
@@ -397,7 +397,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "chaooooo \xB0bg(0)\xB0sprite(0)\xB0name<Paulo>\xB0clear"
+        value: "chaooooo \xB0fadeSPR(1)\xB0name<Paulo>"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -681,7 +681,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0name<Paulo> segundo fade \xB0fadeBG(3)"
+        value: "\xB0name<Paulo> segundo fade \xB0fadeBG(3"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -965,7 +965,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\xB0name<???> Cuerto fade \xB0fadeBoth(0)"
+        value: "\xB0name<???> Cuerto fade \xB0fadeBoth(2,0)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -1146,8 +1146,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 16.605534}
-    canvasZoom: 0.68000036
+    canvasScrollPosition: {x: 153.504, y: 0}
+    canvasZoom: 0.98000014
   syncInfo:
     syncActors: 0
     syncItems: 0

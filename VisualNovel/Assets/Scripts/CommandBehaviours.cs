@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class CommandBehaviours : MonoBehaviour
@@ -56,6 +57,32 @@ public class CommandBehaviours : MonoBehaviour
 
                 break;
 
+            case string a when a.Contains(commands.commandID + "blurBG"):
+
+                float i_bg;
+                int[] indexes_bg = GetBGBlurIndex();
+                string s_bg = indexes_bg[0] + "." + indexes_bg[1];
+
+                if (float.TryParse(s_bg, NumberStyles.Float | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out i_bg))
+                {
+                    FindObjectOfType<BlurController>().blurBGValue = i_bg;
+                }
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "blurSPR"):
+
+                float i_spr;
+                int[] indexes_spr = GetSPRBlurIndex();
+                string s_spr = indexes_spr[0] + "." + indexes_spr[1];
+
+                if (float.TryParse(s_spr, NumberStyles.Float | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out i_spr))
+                {
+                    FindObjectOfType<BlurController>().blurSPRValue = i_spr;
+                }
+
+                break;
+
             default:
                 break;
         }
@@ -84,7 +111,7 @@ public class CommandBehaviours : MonoBehaviour
 
                     if (int.TryParse(numberStr, out i))
                     {
-                        Debug.Log("BG_ID: " + i);
+                        //Debug.Log("BG_ID: " + i);
                         return i;
                     }
                     else
@@ -122,7 +149,7 @@ public class CommandBehaviours : MonoBehaviour
 
                     if (int.TryParse(numberStr, out i))
                     {
-                        Debug.Log("SPR_ID: " + i);
+                        //Debug.Log("SPR_ID: " + i);
                         return i;
                     }
                     else
@@ -162,7 +189,7 @@ public class CommandBehaviours : MonoBehaviour
 
                     if (int.TryParse(numberStr, out i))
                     {
-                        Debug.Log("Fade_BG_ID: " + i);
+                        //Debug.Log("Fade_BG_ID: " + i);
                         return i;
                     }
                     else
@@ -202,7 +229,7 @@ public class CommandBehaviours : MonoBehaviour
 
                     if (int.TryParse(numberStr, out i))
                     {
-                        Debug.Log("Fade_SPR_ID: " + i);
+                        //Debug.Log("Fade_SPR_ID: " + i);
                         return i;
                     }
                     else
@@ -236,7 +263,51 @@ public class CommandBehaviours : MonoBehaviour
             }
         }
 
-        Debug.Log("Fades_IDs: " + ids);
+        //Debug.Log("Fades_IDs: " + ids);
+        return ids;
+    }
+    int[] GetBGBlurIndex()
+    {
+        int[] ids = new int[2];
+
+        int startIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0]);
+        int endIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1]);
+
+        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
+        {
+            string content = commands.currentText.Substring(startIndex + 1, endIndex - startIndex - 1);
+
+            string[] numberStrs = content.Split('.');
+
+            if (numberStrs.Length == 2)
+            {
+                int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                int.TryParse(numberStrs[1].Trim(), out ids[1]);
+            }
+        }
+
+        return ids;
+    }
+    int[] GetSPRBlurIndex()
+    {
+        int[] ids = new int[2];
+
+        int startIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0]);
+        int endIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1]);
+
+        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
+        {
+            string content = commands.currentText.Substring(startIndex + 1, endIndex - startIndex - 1);
+
+            string[] numberStrs = content.Split('.');
+
+            if (numberStrs.Length == 2)
+            {
+                int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                int.TryParse(numberStrs[1].Trim(), out ids[1]);
+            }
+        }
+
         return ids;
     }
 }

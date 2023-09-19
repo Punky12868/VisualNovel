@@ -43,7 +43,7 @@ public class Commands : MonoBehaviour
                 currentText = dialogueOutput;
             }
         }
-        
+
         return dialogueOutput;
     }
     void PlayComandName()

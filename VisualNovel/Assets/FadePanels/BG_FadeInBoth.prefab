@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 88.686, y: 49.8859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4668976316138432444
 CanvasRenderer:
@@ -109,5 +109,8 @@ MonoBehaviour:
   changeSPR: 0
   changeBoth: 1
   lerpSpeed: 1.25
+  lerpSpeedFast: 2
   timeWindow: 0.05
+  timeWindowFast: 0.1
   i: 0
+  x: 0000000000000000
