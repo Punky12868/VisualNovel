@@ -245,8 +245,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "olaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          \xB0name<Diego>\xB0blurBG(3.1)"
+        value: "olaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          \xB0name<Diego>\xB0blurBG(3.1)\xB0FadeColor_SPR(true)\xB0FadeOpacity_SPR(true)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -439,7 +439,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 482.06232
-        y: 192.84612
+        y: 194.09612
         width: 160
         height: 30
     - id: 16
@@ -1141,8 +1141,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 30.576782, y: 0}
-    canvasZoom: 0.6800002
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.8000001
   syncInfo:
     syncActors: 0
     syncItems: 0

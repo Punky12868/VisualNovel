@@ -11,6 +11,8 @@ public class ClickToContinue : MonoBehaviour
     float storedTime;
     bool wait;
     bool cooldown;
+
+    [HideInInspector] public bool onButton;
     private void Awake()
     {
         storedTime = cooldownTime;
@@ -30,14 +32,16 @@ public class ClickToContinue : MonoBehaviour
         {
             if (!wait)
             {
-                if (Input.GetKeyDown(continueKey))
+                if (!onButton)
                 {
-                    FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
-                    cooldown = true;
-                    //Debug.Log("Continued Key Pressed");
+                    if (Input.GetKeyDown(continueKey))
+                    {
+                        FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
+                        cooldown = true;
+                        //Debug.Log("Continued Key Pressed");
+                    }
                 }
             }
-            
         }
     }
     private void FixedUpdate()

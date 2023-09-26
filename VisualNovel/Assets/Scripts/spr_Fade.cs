@@ -5,71 +5,69 @@ using UnityEngine;
 
 public class spr_Fade : MonoBehaviour
 {
-    [SerializeField] CanvasGroup fadeController;
+    [SerializeField] CanvasGroup fadeSPR;
+    [SerializeField] Image colorSPR;
 
-    [SerializeField] float fade_lerpSpeed;
-    [SerializeField] float color_lerpSpeed;
+    [SerializeField] float fadeLerpSpeed;
+    [SerializeField] float fadeMargen;
 
-    [SerializeField] float margen;
+    [SerializeField] float colorLerpSpeed;
+    [SerializeField] float colorMargen;
 
-    float colorIndex;
+    [HideInInspector] public float fadeSPRValue = 1;
+    [HideInInspector] public float colorSPRValue = 1;
 
-    [HideInInspector] public bool fadeIn_fade;
-    [HideInInspector] public bool fadeIn_color;
-    [SerializeField] GameObject spr;
-    private void Update()
+    [SerializeField] float fade;
+    [SerializeField] float color;
+    private void FixedUpdate()
     {
-        FadeLerp();
-        ColorLerp();
-        spr.GetComponent<Image>().color = new Color32((byte)colorIndex, (byte)colorIndex, (byte)colorIndex, 255);
+        LerpFadeValueSPR();
+        LerpColorValueSPR();
+
+        fadeSPR.alpha = fade;
+        colorSPR.color = new Color(color, color, color);
     }
-    void FadeLerp()
+    void LerpFadeValueSPR()
     {
-        if (fadeIn_fade)
+        if (fade != fadeSPRValue)
         {
-            if (fadeController.alpha > 1 - margen)
+            fade = Mathf.Lerp(fade, fadeSPRValue, fadeLerpSpeed * Time.fixedDeltaTime);
+
+            if (fade > fadeSPRValue)
             {
-                fadeController.alpha = 1;
+                if (fade < fadeSPRValue + fadeMargen)
+                {
+                    fade = fadeSPRValue;
+                }
             }
-            else if (fadeController.alpha != 1)
+            else
             {
-                fadeController.alpha = Mathf.Lerp(fadeController.alpha, 1, fade_lerpSpeed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            if (fadeController.alpha < 0 + margen)
-            {
-                fadeController.alpha = 0;
-            }
-            else if (fadeController.alpha != 0)
-            {
-                fadeController.alpha = Mathf.Lerp(fadeController.alpha, 0, fade_lerpSpeed * Time.deltaTime);
+                if (fade > fadeSPRValue - fadeMargen)
+                {
+                    fade = fadeSPRValue;
+                }
             }
         }
     }
-    void ColorLerp()
+    void LerpColorValueSPR()
     {
-        if (fadeIn_color)
+        if (color != colorSPRValue)
         {
-            if (colorIndex > 255 - margen)
+            color = Mathf.Lerp(color, colorSPRValue, colorLerpSpeed * Time.fixedDeltaTime);
+
+            if (color > colorSPRValue)
             {
-                colorIndex = 255;
+                if (color < colorSPRValue + colorMargen)
+                {
+                    color = colorSPRValue;
+                }
             }
-            else if (colorIndex != 255)
+            else
             {
-                colorIndex = Mathf.Lerp(colorIndex, 255, color_lerpSpeed * Time.deltaTime);
-            }
-        }
-        else
-        {
-            if (colorIndex < 0 + margen)
-            {
-                colorIndex = 0;
-            }
-            else if (colorIndex != 0)
-            {
-                colorIndex = Mathf.Lerp(colorIndex, 0, color_lerpSpeed * Time.deltaTime);
+                if (color > colorSPRValue - colorMargen)
+                {
+                    color = colorSPRValue;
+                }
             }
         }
     }

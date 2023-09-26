@@ -10,4 +10,7 @@ public class GameAssets : MonoBehaviour
 
     public Sprite[] backgrounds;
     public Sprite[] npcSrites;
+
+    public AudioClip[] BGM;
+    public AudioClip[] SFX;
 }

@@ -7,6 +7,7 @@ public class CommandBehaviours : MonoBehaviour
 {
     Commands commands;
     GameAssets assets;
+    AudioManager audioAssets;
 
     [HideInInspector] public int fadeBG;
     [HideInInspector] public int fadeSPR;
@@ -14,6 +15,7 @@ public class CommandBehaviours : MonoBehaviour
     {
         commands = GetComponent<Commands>();
         assets = GetComponent<GameAssets>();
+        audioAssets = FindObjectOfType<AudioManager>();
     }
     public void PlayCommandGame(string command)
     {
@@ -21,16 +23,12 @@ public class CommandBehaviours : MonoBehaviour
         {
             case string a when a.Contains(commands.commandID + "bg"):
 
-                int x = GetBackGroundID();
-                assets.currentBG.sprite = assets.backgrounds[x];
-                //Debug.Log("BackGround Change: BG ID: " + GetBackGroundID());
+                assets.currentBG.sprite = assets.backgrounds[GetBackGroundID()];
 
                 break;
             case string a when a.Contains(commands.commandID + "sprite"):
 
-                int y = GetSpriteID();
-                assets.currentSprite.sprite = assets.npcSrites[y];
-                //Debug.Log("Npc Sprite Change: Sprite ID: " + GetSpriteID());
+                assets.currentSprite.sprite = assets.npcSrites[GetSpriteID()];
 
                 break;
             case string a when a.Contains(commands.commandID + "fadein"):
@@ -59,13 +57,33 @@ public class CommandBehaviours : MonoBehaviour
 
             case string a when a.Contains(commands.commandID + "FadeOpacity_SPR"):
 
-                GetFadeOpacitySPR(a);
+                //GetFadeOpacitySPR(a);
+                FindObjectOfType<spr_Fade>().fadeSPRValue = GetAlphaValueSPR();
 
                 break;
 
             case string a when a.Contains(commands.commandID + "FadeColor_SPR"):
 
-                GetFadeColorSPR(a);
+                //GetFadeColorSPR(a);
+                FindObjectOfType<spr_Fade>().colorSPRValue = GetColorValueSPR();
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "BGM"):
+
+                audioAssets.ChangeMusic(assets.BGM[GetBGM()]);
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "SFX"):
+
+                audioAssets.PlaySoundFX(assets.SFX[GetSFX()]);
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "end"):
+
+                FindObjectOfType<ClickToContinue>().enabled = false;
 
                 break;
 
@@ -252,36 +270,160 @@ public class CommandBehaviours : MonoBehaviour
         //Debug.Log("Fades_IDs: " + ids);
         return ids;
     }
-    void GetFadeOpacitySPR(string a)
+    int GetAlphaValueSPR()
     {
-        if (a.Substring(10) == "true")
+        int i;
+        string command = commands.commandID + "FadeOpacity_SPR";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
         {
-            FindObjectOfType<spr_Fade>().fadeIn_fade = true;
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse FadeOpacity_SPR_ID.");
+                    }
+                }
+            }
         }
-        else if (a.Substring(10) == "false")
-        {
-            FindObjectOfType<spr_Fade>().fadeIn_fade = false;
-        }
-        else
-        {
-            Debug.Log("Error");
-        }
+
+        Debug.LogError("FadeOpacity_SPR_ID not found.");
+        return -1;
     }
-    void GetFadeColorSPR(string a)
+    int GetColorValueSPR()
     {
-        if (a.Substring(10) == "true")
+        int i;
+        string command = commands.commandID + "FadeColor_SPR";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
         {
-            FindObjectOfType<spr_Fade>().fadeIn_color = true;
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse FadeColor_SPR_ID.");
+                    }
+                }
+            }
         }
-        else if (a.Substring(10) == "false")
-        {
-            FindObjectOfType<spr_Fade>().fadeIn_color = false;
-        }
-        else
-        {
-            Debug.Log("Error");
-        }
+
+        Debug.LogError("FadeColor_SPR_ID not found.");
+        return -1;
     }
+    int GetBGM()
+    {
+        int i;
+        string command = commands.commandID + "BGM";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse BGM_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("BGM_ID not found.");
+        return -1;
+    }
+    int GetSFX()
+    {
+        int i;
+        string command = commands.commandID + "SFX";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse SFX_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("SFX_ID not found.");
+        return -1;
+    }
+
+
     /*int[] GetSPRBlurIndex()
     {
         int[] ids = new int[2];
