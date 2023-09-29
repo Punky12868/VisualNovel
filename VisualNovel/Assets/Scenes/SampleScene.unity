@@ -1786,6 +1786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BG_FadeOut
       objectReference: {fileID: 0}
+    - target: {fileID: 8902978486475222078, guid: 52d426a822d940246add91213c145cf7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52d426a822d940246add91213c145cf7, type: 3}
 --- !u!1 &1814299863
@@ -2381,7 +2385,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: New Conversation 1
+  conversation: TEST
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -2417,7 +2421,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: ee811857e8f8f5d4e96157ba8cfa3eaf, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: f357c65a6946edd4b8361fd5bce46280, type: 2}
 --- !u!1 &2068785446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,7 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8b685e62a9aeb4a9472b30ec2d86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDatabase: {fileID: 11400000, guid: ee811857e8f8f5d4e96157ba8cfa3eaf, type: 2}
+  initialDatabase: {fileID: 11400000, guid: f357c65a6946edd4b8361fd5bce46280, type: 2}
   displaySettings:
     conversationOverrideSettings:
       useOverrides: 0
