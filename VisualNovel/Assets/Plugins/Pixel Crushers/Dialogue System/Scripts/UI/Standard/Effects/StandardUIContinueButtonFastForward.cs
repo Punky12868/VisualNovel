@@ -1,5 +1,6 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
+using System;
 using UnityEngine;
 using Febucci.UI;
 
@@ -14,6 +15,7 @@ namespace PixelCrushers.DialogueSystem
     [AddComponentMenu("")] // Use wrapper.
     public class StandardUIContinueButtonFastForward : MonoBehaviour
     {
+        GameObject text;
 
         [Tooltip("Dialogue UI that the continue button affects.")]
         public StandardDialogueUI dialogueUI;
@@ -85,13 +87,21 @@ namespace PixelCrushers.DialogueSystem
                 if (hideContinueButtonOnContinue && continueButton != null) continueButton.gameObject.SetActive(false);
                 if (runtimeDialogueUI != null)
                 {
-                    if (continueSubtitlePanel && continueAlertPanel) runtimeDialogueUI.OnContinue();
-                    else if (continueSubtitlePanel) runtimeDialogueUI.OnContinueConversation();
-                    else if (continueAlertPanel) runtimeDialogueUI.OnContinueAlert();
+                    if (continueSubtitlePanel && continueAlertPanel)
+                    {
+                        runtimeDialogueUI.OnContinue();
+                    }
+                    else if (continueSubtitlePanel)
+                    {
+                        runtimeDialogueUI.OnContinueConversation();
+                    }
+                    else if (continueAlertPanel)
+                    {
+                        runtimeDialogueUI.OnContinueAlert();
+                    }
                 }
             }
+
         }
-
     }
-
 }

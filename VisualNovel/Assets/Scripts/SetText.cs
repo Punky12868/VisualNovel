@@ -35,8 +35,8 @@ public class SetText : MonoBehaviour
         if (a)
         {
             change = a;
-            stored_txt = txt;
             GetComponent<TMP_Text>().text = "";
+            stored_txt = txt;
         }
         else
         {

@@ -108,9 +108,9 @@ MonoBehaviour:
   changeBG: 1
   changeSPR: 0
   changeBoth: 0
-  lerpSpeed: 1.25
-  lerpSpeedFast: 2
+  lerpSpeed: 2
+  lerpSpeedFast: 3
   timeWindow: 0.05
-  timeWindowFast: 0.1
+  timeWindowFast: 0.5
   i: 0
   x: 0000000000000000

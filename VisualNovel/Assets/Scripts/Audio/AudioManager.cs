@@ -21,8 +21,8 @@ public class AudioManager : MonoBehaviour
 
         assets = FindObjectOfType<GameAssets>();
 
-        bgm.clip = assets.BGM[0];
-        bgm.Play();
+        /*bgm.clip = assets.BGM[0];
+        bgm.Play();*/
     }
     public void PlaySoundFX(AudioClip clip)
     {
@@ -30,7 +30,10 @@ public class AudioManager : MonoBehaviour
     }
     public void ChangeMusic(AudioClip clip)
     {
-        bgm.Stop();
+        if (bgm.isPlaying)
+        {
+            bgm.Stop();
+        }
         bgm.clip = clip;
         bgm.Play();
     }
