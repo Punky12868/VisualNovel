@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using TMPro;
 
@@ -51,4 +52,5 @@ public class SetText : MonoBehaviour
         string textWithoutNumbers = Regex.Replace(inputText, pattern, "");
         return textWithoutNumbers;
     }
+    
 }

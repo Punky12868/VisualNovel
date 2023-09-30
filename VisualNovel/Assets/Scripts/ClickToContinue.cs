@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
+//using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class ClickToContinue : MonoBehaviour
+public class ClickToContinue : MonoBehaviour//, IPointerClickHandler
 {
     [HideInInspector] public PanelFade isFade;
-	[SerializeField] KeyCode continueKey;
+	//[SerializeField] KeyCode continueKey;
 	[SerializeField] float cooldownTime;
     float storedTime;
     bool wait;
@@ -28,21 +29,7 @@ public class ClickToContinue : MonoBehaviour
             wait = false;
         }
 
-        if (!cooldown)
-        {
-            if (!wait)
-            {
-                if (!onButton)
-                {
-                    if (Input.GetKeyDown(continueKey))
-                    {
-                        FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
-                        cooldown = true;
-                        //Debug.Log("Continued Key Pressed");
-                    }
-                }
-            }
-        }
+        
     }
     private void FixedUpdate()
     {
@@ -60,4 +47,37 @@ public class ClickToContinue : MonoBehaviour
         }
         
     }
+    public void OnClick()
+    {
+        if (!cooldown)
+        {
+            if (!wait)
+            {
+                if (!onButton)
+                {
+                    FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
+                    cooldown = true;
+                    Debug.Log("Continued Key Pressed");
+                }
+            }
+        }
+    }
+    /*public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!cooldown)
+        {
+            if (!wait)
+            {
+                if (!onButton)
+                {
+                    if (Input.GetKeyDown(continueKey))
+                    {
+                        FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
+                        cooldown = true;
+                        Debug.Log("Continued Key Pressed");
+                    }
+                }
+            }
+        }
+    }*/
 }
