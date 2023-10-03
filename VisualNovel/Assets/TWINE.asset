@@ -2579,7 +2579,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "El comando \"getSPRTwoPos(n\xFAmero)\" recibe un argumento y determina
           la posici\xF3n del sprite numero dos, siendo 0 izquierda, 1 centro y 2
-          derecha\xB0getSPROnePos(1)\xB0getSPRTwoPos(1)\xB0stopSkip"
+          derecha\xB0getSPROnePos(1)\xB0getSPRTwoPos(1)\xB0stopSkip\xB0FadeOpacitySPR(1,0)"
         type: 0
         typeString: CustomFieldType_Text
       - title: Parenthetical
@@ -2910,8 +2910,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 212.37119}
-    canvasZoom: 0.9699997
+    canvasScrollPosition: {x: 242.8475, y: 172.35655}
+    canvasZoom: 1.0299996
   syncInfo:
     syncActors: 0
     syncItems: 0
