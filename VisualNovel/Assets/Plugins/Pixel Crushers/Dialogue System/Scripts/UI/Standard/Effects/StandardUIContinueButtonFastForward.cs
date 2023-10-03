@@ -89,15 +89,19 @@ namespace PixelCrushers.DialogueSystem
                 {
                     if (continueSubtitlePanel && continueAlertPanel)
                     {
+                        StopCoroutine(FindObjectOfType<TextAnimatorSubtitlePanel>().Delay());
                         runtimeDialogueUI.OnContinue();
+                        //Debug.Log("continueSubtitlePanel && continueAlertPanel");
                     }
                     else if (continueSubtitlePanel)
                     {
                         runtimeDialogueUI.OnContinueConversation();
+                        //Debug.Log("continueSubtitlePanel");
                     }
                     else if (continueAlertPanel)
                     {
                         runtimeDialogueUI.OnContinueAlert();
+                        //Debug.Log("continueAlertPanel");
                     }
                 }
             }

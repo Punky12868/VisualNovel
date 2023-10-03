@@ -10,7 +10,10 @@ public class CommandBehaviours : MonoBehaviour
     AudioManager audioAssets;
 
     [HideInInspector] public int fadeBG;
-    [HideInInspector] public int fadeSPR;
+    [HideInInspector] public int[] fadeSPR;
+    [HideInInspector] public int[] fadeBoth;
+
+    [HideInInspector] public bool isSkiping;
     private void Awake()
     {
         commands = GetComponent<Commands>();
@@ -28,7 +31,9 @@ public class CommandBehaviours : MonoBehaviour
                 break;
             case string a when a.Contains(commands.commandID + "sprite"):
 
-                assets.currentSprite.sprite = assets.npcSrites[GetSpriteID()];
+                int[] i = GetSpriteID();
+                assets.currentSpriteOne.sprite = assets.npcSrites[i[0]];
+                assets.currentSpriteTwo.sprite = assets.npcSrites[i[1]];
 
                 break;
             case string a when a.Contains(commands.commandID + "fadein"):
@@ -51,21 +56,55 @@ public class CommandBehaviours : MonoBehaviour
                 break;
             case string a when a.Contains(commands.commandID + "fadeBoth"):
 
+                fadeBoth = GetFadeBothIDs();
                 SpawnPanelFade.SpawnFadeInPanelBoth();
 
                 break;
 
-            case string a when a.Contains(commands.commandID + "FadeOpacity_SPR"):
+            case string a when a.Contains(commands.commandID + "FadeOpacitySPR"):
 
-                //GetFadeOpacitySPR(a);
-                FindObjectOfType<spr_Fade>().fadeSPRValue = GetAlphaValueSPR();
+                int[] x = GetAlphaValueSPR();
+                if (x[0] == 0)
+                {
+                    FindObjectOfType<sprOne_Fade>().fadeSPRValue = x[1];
+                }
+                else if (x[0] == 1)
+                {
+                    FindObjectOfType<sprTwo_Fade>().fadeSPRValue = x[1];
+                }
+                else
+                {
+                    Debug.Log("Invalid_SPR_ID");
+                }
+                break;
+
+            case string a when a.Contains(commands.commandID + "FadeColorSPR"):
+
+                int[] y = GetColorValueSPR();
+                if (y[0] == 0)
+                {
+                    FindObjectOfType<sprOne_Fade>().colorSPRValue = y[1];
+                }
+                else if (y[0] == 1)
+                {
+                    FindObjectOfType<sprTwo_Fade>().colorSPRValue = y[1];
+                }
+                else
+                {
+                    Debug.Log("Invalid_SPR_ID");
+                }
 
                 break;
 
-            case string a when a.Contains(commands.commandID + "FadeColor_SPR"):
+            case string a when a.Contains(commands.commandID + "getSPROnePos"):
 
-                //GetFadeColorSPR(a);
-                FindObjectOfType<spr_Fade>().colorSPRValue = GetColorValueSPR();
+                FindObjectOfType<SpritePosition>().spriteOnePosIndex = GetSpriteOnePosition();
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "getSPRTwoPos"):
+
+                FindObjectOfType<SpritePosition>().spriteTwoPosIndex = GetSpriteTwoPosition();
 
                 break;
 
@@ -87,11 +126,32 @@ public class CommandBehaviours : MonoBehaviour
 
                 break;
 
+            case string a when a.Contains(commands.commandID + "canSkip"):
+
+                    FindObjectOfType<ClickToContinue>().stopSkip = false;
+                FindObjectOfType<ButtonBehaviours>().canSkip = true;
+                FindObjectOfType<ClickToContinue>().canAuto = true;
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "stopSkip"):
+
+                FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(false);
+                FindObjectOfType<ClickToContinue>().stopSkip = true;
+                FindObjectOfType<ClickToContinue>().skip = false;
+                FindObjectOfType<SetText>().stopAuto = true;
+                FindObjectOfType<ButtonBehaviours>().canSkip = false;
+                FindObjectOfType<ClickToContinue>().canAuto = false;
+                FindObjectOfType<ClickToContinue>().autoCooldown = false;
+                Debug.Log("AAA");
+
+                break;
+
             default:
                 break;
         }
     }
-    int GetBackGroundID()
+    public int GetBackGroundID()
     {
         int i;
         string command = commands.commandID + "bg";
@@ -129,9 +189,10 @@ public class CommandBehaviours : MonoBehaviour
         Debug.LogError("BG_ID not found.");
         return -1;
     }
-    int GetSpriteID()
+    public int[] GetSpriteID()
     {
-        int i;
+        int[] ids = new int[2];
+
         string command = commands.commandID + "sprite";
         int startIndex = commands.currentText.IndexOf(command);
 
@@ -149,23 +210,20 @@ public class CommandBehaviours : MonoBehaviour
 
                 if (numberEndIndex != -1)
                 {
-                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
 
-                    if (int.TryParse(numberStr, out i))
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 2)
                     {
-                        //Debug.Log("SPR_ID: " + i);
-                        return i;
-                    }
-                    else
-                    {
-                        Debug.LogError("Failed to parse SPR_ID.");
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
                     }
                 }
             }
         }
 
-        Debug.LogError("SPR_ID not found.");
-        return -1;
+        return ids;
     }
     public int GetFadeBG_ID()
     {
@@ -207,73 +265,157 @@ public class CommandBehaviours : MonoBehaviour
         Debug.LogError("Fade_BG_ID not found.");
         return -1;
     }
-    public int GetFadeSPR_ID()
-    {
-        int i;
-        string command;
-        command = commands.commandID + "fadeSPR";
-
-        int startIndex = commands.currentText.IndexOf(command);
-
-        if (startIndex != -1)
-        {
-            startIndex += command.Length;
-
-            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
-
-            if (numberStartIndex != -1)
-            {
-                numberStartIndex++;
-
-                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
-
-                if (numberEndIndex != -1)
-                {
-                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
-
-                    if (int.TryParse(numberStr, out i))
-                    {
-                        //Debug.Log("Fade_SPR_ID: " + i);
-                        return i;
-                    }
-                    else
-                    {
-                        Debug.LogError("Failed to parse Fade_SPR_ID.");
-                    }
-                }
-            }
-        }
-
-        Debug.LogError("Fade_SPR_ID not found.");
-        return -1;
-    }
-    public int[] GetFadeBothIDs()
+    public int[] GetFadeSPR_ID()
     {
         int[] ids = new int[2];
 
-        int startIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0]);
-        int endIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1]);
+        string command = commands.commandID + "fadeSPR";
+        int startIndex = commands.currentText.IndexOf(command);
 
-        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
+        if (startIndex != -1)
         {
-            string content = commands.currentText.Substring(startIndex + 1, endIndex - startIndex - 1);
+            startIndex += command.Length;
 
-            string[] numberStrs = content.Split(commands.commandSeparator);
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
 
-            if (numberStrs.Length == 2)
+            if (numberStartIndex != -1)
             {
-                int.TryParse(numberStrs[0].Trim(), out ids[0]);
-                int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 2)
+                    {
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                    }
+                }
             }
         }
 
-        //Debug.Log("Fades_IDs: " + ids);
         return ids;
     }
-    int GetAlphaValueSPR()
+    public int[] GetFadeBothIDs()
+    {
+        #region backuo
+        int[] ids = new int[3];
+
+        string command = commands.commandID + "fadeBoth";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 3)
+                    {
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                        int.TryParse(numberStrs[2].Trim(), out ids[2]);
+                    }
+                }
+            }
+        }
+
+        return ids;
+        #endregion
+    }
+    public int[] GetAlphaValueSPR()
+    {
+        int[] ids = new int[2];
+
+        string command = commands.commandID + "FadeOpacitySPR";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 2)
+                    {
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                    }
+                }
+            }
+        }
+
+        return ids;
+    }
+    public int[] GetColorValueSPR()
+    {
+        int[] ids = new int[2];
+
+        string command = commands.commandID + "FadeColorSPR";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 2)
+                    {
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                    }
+                }
+            }
+        }
+
+        return ids;
+    }
+    public int GetSpriteOnePosition()
     {
         int i;
-        string command = commands.commandID + "FadeOpacity_SPR";
+        string command = commands.commandID + "getSPROnePos";
         int startIndex = commands.currentText.IndexOf(command);
 
         if (startIndex != -1)
@@ -299,19 +441,19 @@ public class CommandBehaviours : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError("Failed to parse FadeOpacity_SPR_ID.");
+                        Debug.LogError("Failed to parse BGM_ID.");
                     }
                 }
             }
         }
 
-        Debug.LogError("FadeOpacity_SPR_ID not found.");
+        Debug.LogError("BGM_ID not found.");
         return -1;
     }
-    int GetColorValueSPR()
+    public int GetSpriteTwoPosition()
     {
         int i;
-        string command = commands.commandID + "FadeColor_SPR";
+        string command = commands.commandID + "getSPRTwoPos";
         int startIndex = commands.currentText.IndexOf(command);
 
         if (startIndex != -1)
@@ -337,16 +479,16 @@ public class CommandBehaviours : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError("Failed to parse FadeColor_SPR_ID.");
+                        Debug.LogError("Failed to parse BGM_ID.");
                     }
                 }
             }
         }
 
-        Debug.LogError("FadeColor_SPR_ID not found.");
+        Debug.LogError("BGM_ID not found.");
         return -1;
     }
-    int GetBGM()
+    public int GetBGM()
     {
         int i;
         string command = commands.commandID + "BGM";
@@ -384,7 +526,7 @@ public class CommandBehaviours : MonoBehaviour
         Debug.LogError("BGM_ID not found.");
         return -1;
     }
-    int GetSFX()
+    public int GetSFX()
     {
         int i;
         string command = commands.commandID + "SFX";
@@ -422,28 +564,4 @@ public class CommandBehaviours : MonoBehaviour
         Debug.LogError("SFX_ID not found.");
         return -1;
     }
-
-
-    /*int[] GetSPRBlurIndex()
-    {
-        int[] ids = new int[2];
-
-        int startIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0]);
-        int endIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1]);
-
-        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex)
-        {
-            string content = commands.currentText.Substring(startIndex + 1, endIndex - startIndex - 1);
-
-            string[] numberStrs = content.Split('.');
-
-            if (numberStrs.Length == 2)
-            {
-                int.TryParse(numberStrs[0].Trim(), out ids[0]);
-                int.TryParse(numberStrs[1].Trim(), out ids[1]);
-            }
-        }
-
-        return ids;
-    }*/
 }

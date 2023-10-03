@@ -13,7 +13,6 @@ namespace PixelCrushers.DialogueSystem
     {
 
         #region Serialized Fields
-
         [Tooltip("(Optional) Main panel for subtitle.")]
         public RectTransform panel;
 

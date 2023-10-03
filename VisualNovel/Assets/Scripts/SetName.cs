@@ -16,6 +16,7 @@ public class SetName : MonoBehaviour
             {
                 txt = FindObjectOfType<Commands>().nameOutput;
                 GetComponent<TMP_Text>().text = txt;
+                FindObjectOfType<GameAssets>().currentNpcName = GetComponent<TMP_Text>().text;
                 //Debug.Log("SetName IsRunning");
             }
         }

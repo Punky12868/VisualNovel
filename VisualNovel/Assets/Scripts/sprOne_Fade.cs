@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System;
 
-public class spr_Fade : MonoBehaviour
+public class sprOne_Fade : MonoBehaviour
 {
     [SerializeField] CanvasGroup fadeSPR;
     [SerializeField] Image colorSPR;
@@ -14,11 +15,16 @@ public class spr_Fade : MonoBehaviour
     [SerializeField] float colorLerpSpeed;
     [SerializeField] float colorMargen;
 
-    [HideInInspector] public float fadeSPRValue = 1;
-    [HideInInspector] public float colorSPRValue = 1;
+    public float fadeSPRValue = 1;
+    public float colorSPRValue = 1;
 
-    [SerializeField] float fade;
-    [SerializeField] float color;
+    public float fade;
+    public float color;
+    /*private void Awake()
+    {
+        fadeSPR = GameObject.FindGameObjectWithTag("GameObjectSPR").GetComponent<CanvasGroup>();
+        colorSPR = GameObject.FindGameObjectWithTag("GameObjectSPR").GetComponent<Image>();
+    }*/
     private void FixedUpdate()
     {
         LerpFadeValueSPR();

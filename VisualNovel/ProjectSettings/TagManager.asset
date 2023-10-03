@@ -9,6 +9,11 @@ TagManager:
   - BGMSlider
   - SFXSlider
   - DialogText
+  - CanvasSpawnPoint
+  - GameObjectSPR
+  - GameObjectBG
+  - Manager
+  - DestroyAll
   layers:
   - Default
   - TransparentFX

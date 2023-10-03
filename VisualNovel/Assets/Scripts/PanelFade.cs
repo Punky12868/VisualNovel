@@ -14,16 +14,30 @@ public class PanelFade : MonoBehaviour
     public bool changeSPR;
     public bool changeBoth;
 
+    ClickToContinue skip;
+    public bool isSkipping;
+
     [SerializeField] float lerpSpeed;
     [SerializeField] float lerpSpeedFast;
     [SerializeField] float timeWindow;
     [SerializeField] float timeWindowFast;
 
     [HideInInspector] public int i;
-    [HideInInspector] public int[] x = new int[2];
+    [HideInInspector] public int[] y;
+    [HideInInspector] public int[] x;
     private void Awake()
     {
         FindObjectOfType<ClickToContinue>().isFade = this;
+        skip = FindObjectOfType<ClickToContinue>();
+        if (fadeIn)
+        {
+            FindObjectOfType<ClickToContinue>().isFadein = this;
+            FindObjectOfType<ClickToContinue>().waitSkip = true;
+        }
+        else if (fadeOut)
+        {
+            FindObjectOfType<ClickToContinue>().waitSkip = false;
+        }
         if (fadeIn && change)
         {
             TextChange(true);
@@ -36,23 +50,25 @@ public class PanelFade : MonoBehaviour
                 }
                 else
                 {
-                    i = FindObjectOfType<CommandBehaviours>().fadeSPR;
+                    y = FindObjectOfType<CommandBehaviours>().fadeSPR;
                 }
             }
             else
             {
-                x = FindObjectOfType<CommandBehaviours>().GetFadeBothIDs();
+                x = FindObjectOfType<CommandBehaviours>().fadeBoth;
             }
         }
         panel = GetComponent<CanvasGroup>();
     }
     private void Update()
     {
+        isSkipping = skip.skip;
         if (fadeIn)
         {
             if (panel.alpha == 1)
             {
                 //do something...
+                FindObjectOfType<ClickToContinue>().isFadein = null;
                 SpawnPanelFade[] fades = FindObjectsOfType<SpawnPanelFade>();
                 if (fades.Length > 0)
                 {
@@ -68,6 +84,7 @@ public class PanelFade : MonoBehaviour
             }
             else if (panel.alpha > 1 - timeWindow)
             {
+                
                 SpawnPanelFade.SpawnFadeOutPanel();
                 panel.alpha = 1;
             }
@@ -82,22 +99,26 @@ public class PanelFade : MonoBehaviour
         }
         else if (fadeOut)
         {
-            if (panel.alpha == 0)
+            if (!isSkipping)
             {
-                Destroy(gameObject);
-                fadeOut = false;
-            }
-            else if (panel.alpha < 0 + timeWindow)
-            {
-                panel.alpha = 0;
-            }
-            else if (panel.alpha < 0 + timeWindow + timeWindowFast)
-            {
-                panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeedFast * Time.deltaTime);
-            }
-            else
-            {
-                panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
+                if (panel.alpha == 0)
+                {
+                    
+                    Destroy(gameObject);
+                    fadeOut = false;
+                }
+                else if (panel.alpha < 0 + timeWindow)
+                {
+                    panel.alpha = 0;
+                }
+                else if (panel.alpha < 0 + timeWindow + timeWindowFast)
+                {
+                    panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeedFast * Time.deltaTime);
+                }
+                else
+                {
+                    panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
+                }
             }
         }
     }
@@ -117,7 +138,7 @@ public class PanelFade : MonoBehaviour
         }
         else if (changeBoth)
         {
-            ChangeBoth(x[0], x[1]);
+            ChangeBoth(x[0], x[1], x[2]);
             Destroy(gameObject);
         }
     }
@@ -127,12 +148,14 @@ public class PanelFade : MonoBehaviour
     }
     void ChangeSPR()
     {
-        FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[i];
+        FindObjectOfType<GameAssets>().currentSpriteOne.sprite = FindObjectOfType<GameAssets>().npcSrites[y[0]];
+        FindObjectOfType<GameAssets>().currentSpriteTwo.sprite = FindObjectOfType<GameAssets>().npcSrites[y[1]];
     }
-    void ChangeBoth(int a, int b)
+    void ChangeBoth(int a, int b, int c)
     {
         FindObjectOfType<GameAssets>().currentBG.sprite = FindObjectOfType<GameAssets>().backgrounds[a];
-        FindObjectOfType<GameAssets>().currentSprite.sprite = FindObjectOfType<GameAssets>().npcSrites[b];
+        FindObjectOfType<GameAssets>().currentSpriteOne.sprite = FindObjectOfType<GameAssets>().npcSrites[b];
+        FindObjectOfType<GameAssets>().currentSpriteTwo.sprite = FindObjectOfType<GameAssets>().npcSrites[c];
     }
     void TextChange(bool a)
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using Febucci.UI;
 using TMPro;
 
 public class SetText : MonoBehaviour
@@ -10,6 +11,8 @@ public class SetText : MonoBehaviour
     string stored_txt;
     string txt;
     bool change;
+
+    [HideInInspector] public bool stopAuto;
     private void Update()
     {
         if (!change)
@@ -23,6 +26,7 @@ public class SetText : MonoBehaviour
                     string fixedTxt = RemoveNumbersFromText(txt);
                     txt = fixedTxt;
                     GetComponent<TMP_Text>().text = fixedTxt;
+                    FindObjectOfType<ClickToContinue>().textLenght = fixedTxt.Length;
                 }
                 else
                 {
@@ -36,11 +40,13 @@ public class SetText : MonoBehaviour
         if (a)
         {
             change = a;
+            GetComponent<TypewriterByCharacter>().StopShowingText();
             GetComponent<TMP_Text>().text = "";
             stored_txt = txt;
         }
         else
         {
+            GetComponent<TypewriterByCharacter>().StartShowingText();
             txt = stored_txt;
             GetComponent<TMP_Text>().text = txt;
             change = a;
@@ -48,9 +54,24 @@ public class SetText : MonoBehaviour
     }
     string RemoveNumbersFromText(string inputText)
     {
-        string pattern = @"\(\d+([,.]\d+)?\)";
+        string pattern = @"\(\d+(\,\d+)*\)";
         string textWithoutNumbers = Regex.Replace(inputText, pattern, "");
         return textWithoutNumbers;
     }
-    
+    public void AutoText()
+    {
+        if (!FindObjectOfType<ClickToContinue>().auto)
+        {
+            FindObjectOfType<ButtonBehaviours>().textShown = true;
+        }
+
+        if (!stopAuto)
+        {
+            FindObjectOfType<ClickToContinue>().Auto();
+        }
+        else
+        {
+            stopAuto = false;
+        }
+    }
 }

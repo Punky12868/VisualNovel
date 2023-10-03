@@ -5,7 +5,9 @@ using PixelCrushers.DialogueSystem;
 
 public class SpawnPanelFade : MonoBehaviour
 {
+    public GameObject loadingGameObject;
     [SerializeField] GameObject spawnPoint;
+    [SerializeField] GameObject spawnPointSkip;
     [SerializeField] GameObject[] panelFades;
 
     static bool spawnFadeIn;
@@ -15,7 +17,11 @@ public class SpawnPanelFade : MonoBehaviour
     static bool spawnFadeInBoth;
 
     static bool spawnFadeOut;
-
+    static bool spawnFadeOutSkip;
+    /*private void Awake()
+    {
+        spawnPoint = GameObject.FindGameObjectWithTag("CanvasSpawnPoint");
+    }*/
     private void Update()
     {
         if (spawnFadeIn)
@@ -43,6 +49,11 @@ public class SpawnPanelFade : MonoBehaviour
             Instantiate(panelFades[1], spawnPoint.transform);
             spawnFadeOut = false;
         }
+        else if (spawnFadeOutSkip)
+        {
+            Instantiate(panelFades[1], spawnPointSkip.transform);
+            spawnFadeOutSkip = false;
+        }
     }
     public static void SpawnFadeInPanelBG()
     {
@@ -64,5 +75,8 @@ public class SpawnPanelFade : MonoBehaviour
     {
         spawnFadeOut = true;
     }
-
+    public static void SpawnFadeOutPanelSkip()
+    {
+        spawnFadeOutSkip = true;
+    }
 }

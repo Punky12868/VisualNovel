@@ -647,9 +647,11 @@ namespace PixelCrushers
             if (loadStarted.GetInvocationList().Length > 1)
             {
                 instance.StartCoroutine(LoadFromSlotCoroutine(slotNumber));
+                if (Debug.isDebugBuild) Debug.LogWarning("loadStarted.GetInvocationList().Length > 1");
             }
             else
             {
+                if (Debug.isDebugBuild) Debug.LogWarning("LoadFromSlotNow");
                 LoadFromSlotNow(slotNumber);
             }
         }
