@@ -14,8 +14,12 @@ public class TextBoxOpacity : MonoBehaviour
     public float fade;
     private void FixedUpdate()
     {
-        LerpTxtBoxOpacityValue();
-        opacity.alpha = fade;
+        if (opacity != null)
+        {
+            LerpTxtBoxOpacityValue();
+
+            opacity.alpha = fade;
+        }
     }
     void LerpTxtBoxOpacityValue()
     {

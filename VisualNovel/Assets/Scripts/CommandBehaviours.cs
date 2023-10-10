@@ -56,6 +56,12 @@ public class CommandBehaviours : MonoBehaviour
 
                 break;
 
+            case string a when a.Contains(commands.commandID + "cameraShake"):
+
+                CameraShake.isShaking = true;
+
+                break;
+
             case string a when a.Contains(commands.commandID + "fadein"):
 
                 SpawnPanelFade.SpawnFadeInPanel();
