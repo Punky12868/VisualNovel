@@ -16,6 +16,8 @@ namespace PixelCrushers
         {
             public int bg;
 
+            public int txtbox;
+
             public int spr_one;
 
             public float spr_one_opacityValue;
@@ -64,6 +66,14 @@ namespace PixelCrushers
                     break;
                 }
             }
+            foreach (var textbox in playerStats.gameAssets.textboxSprites)
+            {
+                if (playerStats.gameAssets.currentTextbox.sprite.name == textbox.name)
+                {
+                    data.txtbox = Array.IndexOf(playerStats.gameAssets.textboxSprites, textbox);
+                    break;
+                }
+            }
 
             data.spr_one_opacityValue = playerStats.spr_one_values.fadeSPRValue;
             data.spr_one_colorValue = playerStats.spr_one_values.colorSPRValue;
@@ -83,9 +93,10 @@ namespace PixelCrushers
 
             var playerStats = GetComponent<VariableHolder>();
 
-            //------------------------------------------------------------------------------------------- BG
+            //------------------------------------------------------------------------------------------- BG && TXTBOX
 
             playerStats.bg.sprite = playerStats.gameAssets.backgrounds[data.bg];
+            playerStats.txtbox.sprite = playerStats.gameAssets.textboxSprites[data.txtbox];
 
             //------------------------------------------------------------------------------------------- SPR ONE
 

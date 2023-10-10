@@ -61,21 +61,16 @@ public class CommandBehaviours : MonoBehaviour
 
                 break;
 
-            case string a when a.Contains(commands.commandID + "FadeOpacitySPR"):
+            case string a when a.Contains(commands.commandID + "fadeOpacityOneSPR"):
 
-                int[] x = GetAlphaValueSPR();
-                if (x[0] == 0)
-                {
-                    FindObjectOfType<sprOne_Fade>().fadeSPRValue = x[1];
-                }
-                else if (x[0] == 1)
-                {
-                    FindObjectOfType<sprTwo_Fade>().fadeSPRValue = x[1];
-                }
-                else
-                {
-                    Debug.Log("Invalid_SPR_ID");
-                }
+                FindObjectOfType<sprOne_Fade>().fadeSPRValue = GetAlphaValueOneSPR();
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "fadeOpacityTwoSPR"):
+
+                FindObjectOfType<sprTwo_Fade>().fadeSPRValue = GetAlphaValueTwoSPR();
+
                 break;
 
             case string a when a.Contains(commands.commandID + "FadeColorSPR"):
@@ -340,11 +335,12 @@ public class CommandBehaviours : MonoBehaviour
         return ids;
         #endregion
     }
-    public int[] GetAlphaValueSPR()
+    public int GetAlphaValueOneSPR()
     {
-        int[] ids = new int[2];
+        int i;
+        string command;
+        command = commands.commandID + "fadeOpacityOneSPR";
 
-        string command = commands.commandID + "FadeOpacitySPR";
         int startIndex = commands.currentText.IndexOf(command);
 
         if (startIndex != -1)
@@ -361,20 +357,63 @@ public class CommandBehaviours : MonoBehaviour
 
                 if (numberEndIndex != -1)
                 {
-                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
 
-                    string[] numberStrs = content.Split(commands.commandSeparator);
-
-                    if (numberStrs.Length == 2)
+                    if (int.TryParse(numberStr, out i))
                     {
-                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
-                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                        //Debug.Log("Fade_BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse Fade_BG_ID.");
                     }
                 }
             }
         }
 
-        return ids;
+        Debug.LogError("Fade_BG_ID not found.");
+        return -1;
+    }
+    public int GetAlphaValueTwoSPR()
+    {
+        int i;
+        string command;
+        command = commands.commandID + "fadeOpacityTwoSPR";
+
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("Fade_BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse Fade_BG_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("Fade_BG_ID not found.");
+        return -1;
     }
     public int[] GetColorValueSPR()
     {

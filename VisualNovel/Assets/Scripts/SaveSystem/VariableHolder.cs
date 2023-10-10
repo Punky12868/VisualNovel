@@ -6,6 +6,7 @@ using UnityEngine;
 public class VariableHolder : MonoBehaviour
 {
     public Image bg;
+    public Image txtbox;
     public Image spr_one;
     public Image spr_two;
 
