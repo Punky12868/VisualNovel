@@ -13,5 +13,6 @@ public class VariableHolder : MonoBehaviour
     public GameAssets gameAssets;
     public sprOne_Fade spr_one_values;
     public sprTwo_Fade spr_two_values;
+    public TextBoxOpacity txtBox_value;
     public SpritePosition spr_pos_values;
 }

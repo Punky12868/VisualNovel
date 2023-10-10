@@ -26,9 +26,10 @@ public class CommandBehaviours : MonoBehaviour
         {
             case string a when a.Contains(commands.commandID + "bg"):
 
-                assets.currentBG.sprite = assets.backgrounds[GetBackGroundID()];
+                assets.currentBG.sprite = assets.backgrounds[GetBackgroundID()];
 
                 break;
+
             case string a when a.Contains(commands.commandID + "sprite"):
 
                 int[] i = GetSpriteID();
@@ -36,11 +37,31 @@ public class CommandBehaviours : MonoBehaviour
                 assets.currentSpriteTwo.sprite = assets.npcSrites[i[1]];
 
                 break;
+
+            case string a when a.Contains(commands.commandID + "textBoxChange"):
+
+                assets.currentTextbox.sprite = assets.textboxSprites[GetTextBoxID()];
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "textboxShow"):
+
+                FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 1;
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "textboxHide"):
+
+                FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 0;
+
+                break;
+
             case string a when a.Contains(commands.commandID + "fadein"):
 
                 SpawnPanelFade.SpawnFadeInPanel();
 
                 break;
+
             case string a when a.Contains(commands.commandID + "fadeBG"):
 
                 fadeBG = GetFadeBG_ID();
@@ -54,6 +75,7 @@ public class CommandBehaviours : MonoBehaviour
                 SpawnPanelFade.SpawnFadeInPanelSPR();
 
                 break;
+
             case string a when a.Contains(commands.commandID + "fadeBoth"):
 
                 fadeBoth = GetFadeBothIDs();
@@ -146,7 +168,7 @@ public class CommandBehaviours : MonoBehaviour
                 break;
         }
     }
-    public int GetBackGroundID()
+    public int GetBackgroundID()
     {
         int i;
         string command = commands.commandID + "bg";
@@ -219,6 +241,44 @@ public class CommandBehaviours : MonoBehaviour
         }
 
         return ids;
+    }
+    public int GetTextBoxID()
+    {
+        int i;
+        string command = commands.commandID + "textBoxChange";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse BG_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("BG_ID not found.");
+        return -1;
     }
     public int GetFadeBG_ID()
     {
