@@ -834,7 +834,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opacityController: {fileID: 8661000808518150682}
-  shakeController: {fileID: 3630495847635545420}
 --- !u!1 &3327184279703308009
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +994,7 @@ GameObject:
   - component: {fileID: 195516867029844441}
   - component: {fileID: 6867924146547054002}
   - component: {fileID: 293033222460912862}
+  - component: {fileID: 7668772072273205820}
   m_Layer: 5
   m_Name: VisualNovelUI
   m_TagString: Untagged
@@ -1092,6 +1092,19 @@ MonoBehaviour:
     m_uiText: {fileID: 0}
     m_textMeshProUGUI: {fileID: 0}
   history: 
+--- !u!114 &7668772072273205820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630495847635545420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056b02f57749a1c4a9b92506e96b3c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catPanel: {fileID: 4389039089064245646}
 --- !u!1 &4389039089064245646
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ namespace PixelCrushers
             public int spr_two_position;
 
             public string npcName;
+            public string catName;
         }
         public override string RecordData()
         {
@@ -42,6 +43,7 @@ namespace PixelCrushers
             var data = new Data();
 
             data.npcName = playerStats.gameAssets.currentNpcName;
+            data.catName = playerStats.gameAssets.catName;
 
             foreach (var bg in playerStats.gameAssets.backgrounds)
             {
@@ -136,6 +138,7 @@ namespace PixelCrushers
             //------------------------------------------------------------------------------------------- Name
 
             FindObjectOfType<Commands>().nameOutput = data.npcName;
+            FindObjectOfType<GameAssets>().catName = data.catName;
         }
     }
 }

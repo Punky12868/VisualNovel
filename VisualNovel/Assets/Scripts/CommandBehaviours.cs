@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using System;
 
 public class CommandBehaviours : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class CommandBehaviours : MonoBehaviour
     [HideInInspector] public int[] fadeBoth;
 
     [HideInInspector] public bool isSkiping;
+    [HideInInspector] public GameObject desitionPanel;
     private void Awake()
     {
         commands = GetComponent<Commands>();
@@ -24,6 +26,18 @@ public class CommandBehaviours : MonoBehaviour
     {
         switch (command)
         {
+            case string a when a.Contains(commands.commandID + "CG"):
+
+                FindObjectOfType<CG>().unlockCG(GetCGID() - 38);
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "cat"):
+
+                Instantiate(assets.catEvent, desitionPanel.transform);
+
+                break;
+
             case string a when a.Contains(commands.commandID + "bg"):
 
                 assets.currentBG.sprite = assets.backgrounds[GetBackgroundID()];
@@ -133,7 +147,26 @@ public class CommandBehaviours : MonoBehaviour
 
             case string a when a.Contains(commands.commandID + "BGM"):
 
-                audioAssets.ChangeMusic(assets.BGM[GetBGM()]);
+                AudioManager.song = GetBGM();
+                AudioManager.change_bgmToBgm = true;
+                AudioManager.changeBGM = true;
+
+                break;
+
+            case string a when a.Contains(commands.commandID + "SPRTrack"):
+
+                int[] x = GetSprTrack();
+                if (x[0] == 1)
+                {
+                    AudioManager.song = x[1];
+                    AudioManager.change_bgmToSpr = true;
+                    AudioManager.changeBGM = true;
+                }
+                else if (x[0] == 0)
+                {
+                    AudioManager.change_sprToBgm = true;
+                    AudioManager.changeBGM = true;
+                }
 
                 break;
 
@@ -631,6 +664,42 @@ public class CommandBehaviours : MonoBehaviour
         Debug.LogError("BGM_ID not found.");
         return -1;
     }
+    public int[] GetSprTrack()
+    {
+        int[] ids = new int[2];
+
+        string command = commands.commandID + "SPRTrack";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string content = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    string[] numberStrs = content.Split(commands.commandSeparator);
+
+                    if (numberStrs.Length == 2)
+                    {
+                        int.TryParse(numberStrs[0].Trim(), out ids[0]);
+                        int.TryParse(numberStrs[1].Trim(), out ids[1]);
+                    }
+                }
+            }
+        }
+
+        return ids;
+    }
     public int GetSFX()
     {
         int i;
@@ -667,6 +736,44 @@ public class CommandBehaviours : MonoBehaviour
         }
 
         Debug.LogError("SFX_ID not found.");
+        return -1;
+    }
+    public int GetCGID()
+    {
+        int i;
+        string command = commands.commandID + "CG";
+        int startIndex = commands.currentText.IndexOf(command);
+
+        if (startIndex != -1)
+        {
+            startIndex += command.Length;
+
+            int numberStartIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[0], startIndex);
+
+            if (numberStartIndex != -1)
+            {
+                numberStartIndex++;
+
+                int numberEndIndex = commands.currentText.IndexOf(commands.substringIndexOfCommands[1], numberStartIndex);
+
+                if (numberEndIndex != -1)
+                {
+                    string numberStr = commands.currentText.Substring(numberStartIndex, numberEndIndex - numberStartIndex);
+
+                    if (int.TryParse(numberStr, out i))
+                    {
+                        //Debug.Log("BG_ID: " + i);
+                        return i;
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to parse BG_ID.");
+                    }
+                }
+            }
+        }
+
+        Debug.LogError("BG_ID not found.");
         return -1;
     }
 }

@@ -11,6 +11,9 @@ public class GameAssets : MonoBehaviour
     public Image currentSpriteTwo;
     public Image currentTextbox;
     public string currentNpcName;
+    public string catName;
+
+    public GameObject catEvent;
 
     public Sprite[] backgrounds;
     public Sprite[] npcSrites;

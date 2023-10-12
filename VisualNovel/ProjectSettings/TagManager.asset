@@ -14,6 +14,7 @@ TagManager:
   - GameObjectBG
   - Manager
   - DestroyAll
+  - Cat
   layers:
   - Default
   - TransparentFX
