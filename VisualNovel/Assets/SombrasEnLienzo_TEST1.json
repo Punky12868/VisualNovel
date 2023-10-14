@@ -1,0 +1,2477 @@
+{
+  "passages": [
+    {
+      "text": "°name<Verónica>Métase el informe por la raj*, me anduvo leseando todo el mes y más encima ahora quiere que se lo deje a alguien más estando prácticamente \"listo\".\n\n[[(aaF2)]]",
+      "links": [
+        {
+          "name": "(aaF2)",
+          "link": "(aaF2)",
+          "pid": "143"
+        }
+      ],
+      "name": " aaF1",
+      "pid": "1",
+      "position": {
+        "x": "2750",
+        "y": "1750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Claro, estaría bien. Necesito urgentemente tomar algo para pensar mejor.     [[(aaF5)]]",
+      "links": [
+        {
+          "name": "(aaF5)",
+          "link": "(aaF5)",
+          "pid": "144"
+        }
+      ],
+      "name": " aaF4)",
+      "pid": "2",
+      "position": {
+        "x": "2750",
+        "y": "6000"
+      }
+    },
+    {
+      "text": "°name<Verónica>Me llevo mi informe conmigo, no pienso dejarle la mitad del trabajo hecho a alguien más, lo siento.\n\n[[(abF2)]]",
+      "links": [
+        {
+          "name": "(abF2)",
+          "link": "(abF2)",
+          "pid": "146"
+        }
+      ],
+      "name": " abF1",
+      "pid": "3",
+      "position": {
+        "x": "3050",
+        "y": "1750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Lo pensaré, ahora mismo estoy media cansada, así que te avisaré más tarde.     [[(abF5)]]",
+      "links": [
+        {
+          "name": "(abF5)",
+          "link": "(abF5)",
+          "pid": "147"
+        }
+      ],
+      "name": " abF4)",
+      "pid": "4",
+      "position": {
+        "x": "3025",
+        "y": "6000"
+      }
+    },
+    {
+      "text": "°name<???>...\n\n\n°textboxShow\n°CanSkip\n[[(a1)]]",
+      "links": [
+        {
+          "name": "(a1)",
+          "link": "(a1)",
+          "pid": "6"
+        }
+      ],
+      "name": "(a0)",
+      "pid": "5",
+      "position": {
+        "x": "2900",
+        "y": "225"
+      }
+    },
+    {
+      "text": "°name<???>«Llevo horas esperando acá y el jefe ni siquiera me dijo para que me necesitaba, estoy puro perdiendo tiempo de pega...»\n[[(a2)]]",
+      "links": [
+        {
+          "name": "(a2)",
+          "link": "(a2)",
+          "pid": "55"
+        }
+      ],
+      "name": "(a1)",
+      "pid": "6",
+      "position": {
+        "x": "2900",
+        "y": "375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Jefe, hay algo que debo decirle...\n\n[[Métase el informe por la raja.-> aaF1]] \n[[Me llevo mi informe conmigo-> abF1]]\n\n°stopSkip",
+      "links": [
+        {
+          "name": "Métase el informe por la raja.",
+          "link": " aaF1",
+          "pid": "1"
+        },
+        {
+          "name": "Me llevo mi informe conmigo",
+          "link": " abF1",
+          "pid": "3"
+        }
+      ],
+      "name": "(a10)",
+      "pid": "7",
+      "position": {
+        "x": "2900",
+        "y": "1625"
+      }
+    },
+    {
+      "text": "°name<Rubí>De hecho hoy es mi primer día y llegué algo atrasada. También se me olvidó el uniforme, espero el Jefe no me rete.   [[(a101)]]",
+      "links": [
+        {
+          "name": "(a101)",
+          "link": "(a101)",
+          "pid": "9"
+        }
+      ],
+      "name": "(a100)",
+      "pid": "8",
+      "position": {
+        "x": "2900",
+        "y": "13375"
+      }
+    },
+    {
+      "text": "°name<Rubí>Oye ¿Y tu nombre es tan bonito como tu rostro, linda?   [[(a102)]]",
+      "links": [
+        {
+          "name": "(a102)",
+          "link": "(a102)",
+          "pid": "10"
+        }
+      ],
+      "name": "(a101)",
+      "pid": "9",
+      "position": {
+        "x": "2900",
+        "y": "13500"
+      }
+    },
+    {
+      "text": "°name<Verónica>«¿Me está coqueteando o solo está siendo amable?»    °stopSkip   [[(Tú nombre es más lindo->aaF6)]] [[(Es un nombre común->abF6)]]",
+      "links": [
+        {
+          "name": "(Tú nombre es más lindo",
+          "link": "aaF6)",
+          "pid": "151"
+        },
+        {
+          "name": "(Es un nombre común",
+          "link": "abF6)",
+          "pid": "153"
+        }
+      ],
+      "name": "(a102)",
+      "pid": "10",
+      "position": {
+        "x": "2900",
+        "y": "13625"
+      }
+    },
+    {
+      "text": "°name<Rubí>¿Oye, quieres que te sirva otra cerveza? Veo que ya te la tomaste toda.   °sprite(1,2) [[(a104)]]",
+      "links": [
+        {
+          "name": "(a104)",
+          "link": "(a104)",
+          "pid": "12"
+        }
+      ],
+      "name": "(a103)",
+      "pid": "11",
+      "position": {
+        "x": "2900",
+        "y": "14000"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Mis habilidades de bebedora me sorprenden, ni siquiera me di cuanta cuando me acabé todo, lo malo es que me pega rápido».   [[(a105)]]",
+      "links": [
+        {
+          "name": "(a105)",
+          "link": "(a105)",
+          "pid": "13"
+        }
+      ],
+      "name": "(a104)",
+      "pid": "12",
+      "position": {
+        "x": "2900",
+        "y": "14125"
+      }
+    },
+    {
+      "text": "°name<Verónica>Sí, por favor. «Ya comenzó a darme un poco de sueño, la bebida está haciendo efecto. Me recostaré me la barra un momento».   [[(a106)]]",
+      "links": [
+        {
+          "name": "(a106)",
+          "link": "(a106)",
+          "pid": "14"
+        }
+      ],
+      "name": "(a105)",
+      "pid": "13",
+      "position": {
+        "x": "2900",
+        "y": "14250"
+      }
+    },
+    {
+      "text": "°name<Rubí>Parece que tu resistencia no es muy buena ¡Jajaja!   °sprite(1,16)   [[(a107)]]",
+      "links": [
+        {
+          "name": "(a107)",
+          "link": "(a107)",
+          "pid": "15"
+        }
+      ],
+      "name": "(a106)",
+      "pid": "14",
+      "position": {
+        "x": "2900",
+        "y": "14375"
+      }
+    },
+    {
+      "text": "°name<Rubí>Oye, tienes algo en cabello, déjame retíralo por ti. (Se acerca a tocarla).   °sprite(1,2)   [[(a108)]]",
+      "links": [
+        {
+          "name": "(a108)",
+          "link": "(a108)",
+          "pid": "16"
+        }
+      ],
+      "name": "(a107)",
+      "pid": "15",
+      "position": {
+        "x": "2900",
+        "y": "14500"
+      }
+    },
+    {
+      "text": "°name<Voz Masculina>¡Oh!¡Mira a quien tenemos aquí!   °cameraShake °sprite(1,3)   [[(a109)]]",
+      "links": [
+        {
+          "name": "(a109)",
+          "link": "(a109)",
+          "pid": "17"
+        }
+      ],
+      "name": "(a108)",
+      "pid": "16",
+      "position": {
+        "x": "2900",
+        "y": "14625"
+      }
+    },
+    {
+      "text": "°name<???>¡La rarita de las pinturas! Cura' y acosta' en la barra.   °getSPROnePos(0) °getSPRTwoPos(2) °fadeOpacityTwoSPR(1) °fadeColorSRP(3,0) °sprite(22,3)   [[(a110)]]",
+      "links": [
+        {
+          "name": "(a110)",
+          "link": "(a110)",
+          "pid": "19"
+        }
+      ],
+      "name": "(a109)",
+      "pid": "17",
+      "position": {
+        "x": "2900",
+        "y": "14750"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Nunca me agrado ese hombre, pero bueno, una a veces no tiene más opción que aguantar a esta gente. Necesito aire, iré por mis cosas y me largaré de aquí».\n\n°fadeOpacityOneSPR(0)\n[[(a12)]]",
+      "links": [
+        {
+          "name": "(a12)",
+          "link": "(a12)",
+          "pid": "29"
+        }
+      ],
+      "name": "(a11)",
+      "pid": "18",
+      "position": {
+        "x": "2900",
+        "y": "2000"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Agh... No este viejo de nuevo».   [[(a111)]]",
+      "links": [
+        {
+          "name": "(a111)",
+          "link": "(a111)",
+          "pid": "20"
+        }
+      ],
+      "name": "(a110)",
+      "pid": "19",
+      "position": {
+        "x": "2900",
+        "y": "14875"
+      }
+    },
+    {
+      "text": "°name<???>Ya te estai' lamentando tu futuro cabrita, es como medio tarde pa' eso ya.   [[(a112)]]",
+      "links": [
+        {
+          "name": "(a112)",
+          "link": "(a112)",
+          "pid": "21"
+        }
+      ],
+      "name": "(a111)",
+      "pid": "20",
+      "position": {
+        "x": "2900",
+        "y": "15000"
+      }
+    },
+    {
+      "text": "°name<???>¿Qué hace esta hermosa señorita contigo? ¿No le estai' pegando lo rara cierto?   [[(a113)]]",
+      "links": [
+        {
+          "name": "(a113)",
+          "link": "(a113)",
+          "pid": "22"
+        }
+      ],
+      "name": "(a112)",
+      "pid": "21",
+      "position": {
+        "x": "2900",
+        "y": "15125"
+      }
+    },
+    {
+      "text": "°name<???>Señorita tenga cuidao', esta es como marimacha oiga ¿Por qué mejor no se viene conmigo, ah?   [[(a114)]]",
+      "links": [
+        {
+          "name": "(a114)",
+          "link": "(a114)",
+          "pid": "23"
+        }
+      ],
+      "name": "(a113)",
+      "pid": "22",
+      "position": {
+        "x": "2900",
+        "y": "15250"
+      }
+    },
+    {
+      "text": "°name<Verónica>Mario, déjala tranquila. Si vas a venir a webear, hazlo conmigo solamente a mi.   °sprite(2,3) °fadeOpacityTwoSPR(1) °fadeColorSRP(3,0)   [[(a115)]]",
+      "links": [
+        {
+          "name": "(a115)",
+          "link": "(a115)",
+          "pid": "24"
+        }
+      ],
+      "name": "(a114)",
+      "pid": "23",
+      "position": {
+        "x": "2900",
+        "y": "15375"
+      }
+    },
+    {
+      "text": "°name<Mario>Cha... ¿Y a ti que mosco te picó que andai' respondona? ¿Andai' con la wea acaso? No se te puede decir nada ahora o qué, si lo de rarita es pura verda'.   °sprite(22,18)   [[(a116)]]",
+      "links": [
+        {
+          "name": "(a116)",
+          "link": "(a116)",
+          "pid": "25"
+        }
+      ],
+      "name": "(a115)",
+      "pid": "24",
+      "position": {
+        "x": "2900",
+        "y": "15500"
+      }
+    },
+    {
+      "text": "°name<Mario>Andai' puro pintando el mono con tus pinturas y no sé que, y además, cura' te poni' a hablar con minas.   [[(a117)]]",
+      "links": [
+        {
+          "name": "(a117)",
+          "link": "(a117)",
+          "pid": "26"
+        }
+      ],
+      "name": "(a116)",
+      "pid": "25",
+      "position": {
+        "x": "2900",
+        "y": "15625"
+      }
+    },
+    {
+      "text": "°name<Mario>¿Por qué mejor no te poni' a buscar alguna pega más decente en vez de andar leseando por acá? Así no vai' a durar nah', y te lo digo de pura buena onda.   [[(a118)]]",
+      "links": [
+        {
+          "name": "(a118)",
+          "link": "(a118)",
+          "pid": "27"
+        }
+      ],
+      "name": "(a117)",
+      "pid": "26",
+      "position": {
+        "x": "2900",
+        "y": "15750"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«No tengo energías para responderle y no tengo ni ganas de discutirle...».   [[(a119)]]",
+      "links": [
+        {
+          "name": "(a119)",
+          "link": "(a119)",
+          "pid": "28"
+        }
+      ],
+      "name": "(a118)",
+      "pid": "27",
+      "position": {
+        "x": "2900",
+        "y": "15875"
+      }
+    },
+    {
+      "text": "°name<Mario>¡Viste!¡Calladita más bonita!¡Jajaja!   [[(a120)]]",
+      "links": [
+        {
+          "name": "(a120)",
+          "link": "(a120)",
+          "pid": "30"
+        }
+      ],
+      "name": "(a119)",
+      "pid": "28",
+      "position": {
+        "x": "2900",
+        "y": "16000"
+      }
+    },
+    {
+      "text": "°fadeBG(2)\n°BGM(2)\n°SFX(2)\n°textboxHide\n\n[[(a13)]]",
+      "links": [
+        {
+          "name": "(a13)",
+          "link": "(a13)",
+          "pid": "40"
+        }
+      ],
+      "name": "(a12)",
+      "pid": "29",
+      "position": {
+        "x": "2900",
+        "y": "2125"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Oiga, dejé de molestarla! ¿Qué se creé?¿El hoyo del queque acaso?¡Váyase a molestar a otro lado o lo echo del local yo misma, ahora!   °cameraShake   [[(a121)]]",
+      "links": [
+        {
+          "name": "(a121)",
+          "link": "(a121)",
+          "pid": "31"
+        }
+      ],
+      "name": "(a120)",
+      "pid": "30",
+      "position": {
+        "x": "2900",
+        "y": "16125"
+      }
+    },
+    {
+      "text": "°name<Mario>¡Chu...!¡Andan todas enojonas hoy!   [[(a122)]]",
+      "links": [
+        {
+          "name": "(a122)",
+          "link": "(a122)",
+          "pid": "32"
+        }
+      ],
+      "name": "(a121)",
+      "pid": "31",
+      "position": {
+        "x": "2900",
+        "y": "16250"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«Por fin se fue».   °sprite(2,18) °getSPROnePos(1) °getSPRTwoPos(1) °fadeOpacityTwoSPR(0)   [[(a123)]]",
+      "links": [
+        {
+          "name": "(a123)",
+          "link": "(a123)",
+          "pid": "33"
+        }
+      ],
+      "name": "(a122)",
+      "pid": "32",
+      "position": {
+        "x": "2900",
+        "y": "16375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Perdón por eso Rubí... Y gracias por haberle hecho cara, no tenía las energías para hacerlo yo.   [[(a124)]]",
+      "links": [
+        {
+          "name": "(a124)",
+          "link": "(a124)",
+          "pid": "34"
+        }
+      ],
+      "name": "(a123)",
+      "pid": "33",
+      "position": {
+        "x": "2900",
+        "y": "16500"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡No te preocupes! No sé quién es ese viejo, pero fue super mala onda, no debió hablar así de ti.   [[(a125)]]",
+      "links": [
+        {
+          "name": "(a125)",
+          "link": "(a125)",
+          "pid": "35"
+        }
+      ],
+      "name": "(a124)",
+      "pid": "34",
+      "position": {
+        "x": "2900",
+        "y": "16625"
+      }
+    },
+    {
+      "text": "°name<Raúl>¡Vero! Disculpa la demora, el baño estaba llenísimo y-    °sprite(2,10) °getSPROnePos(0) °getSPRTwoPos(2) °fadeOpacityTwoSPR(1)   [[(a126)]]",
+      "links": [
+        {
+          "name": "(a126)",
+          "link": "(a126)",
+          "pid": "36"
+        }
+      ],
+      "name": "(a125)",
+      "pid": "35",
+      "position": {
+        "x": "2900",
+        "y": "16750"
+      }
+    },
+    {
+      "text": "°name<Raúl>Oh, hola ¿Eres amiga de Vero?¿Interrumpo?   °sprite(2,1)   [[(a127)]]",
+      "links": [
+        {
+          "name": "(a127)",
+          "link": "(a127)",
+          "pid": "37"
+        }
+      ],
+      "name": "(a126)",
+      "pid": "36",
+      "position": {
+        "x": "2900",
+        "y": "16875"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Hola! Soy Rubí, y no, no soy amiga de Vero, pero sí, acabas de interrumpirme.    [[(a128)]]",
+      "links": [
+        {
+          "name": "(a128)",
+          "link": "(a128)",
+          "pid": "38"
+        }
+      ],
+      "name": "(a127)",
+      "pid": "37",
+      "position": {
+        "x": "2900",
+        "y": "17000"
+      }
+    },
+    {
+      "text": "°name<Raúl>Yo Raúl.   [[(a129)]]",
+      "links": [
+        {
+          "name": "(a129)",
+          "link": "(a129)",
+          "pid": "39"
+        }
+      ],
+      "name": "(a128)",
+      "pid": "38",
+      "position": {
+        "x": "2900",
+        "y": "17125"
+      }
+    },
+    {
+      "text": "°name<Raúl>Y perdóname, es que salí apurado del baño y no te vi y-    °sprite(2,10)   [[(a130)]]",
+      "links": [
+        {
+          "name": "(a130)",
+          "link": "(a130)",
+          "pid": "41"
+        }
+      ],
+      "name": "(a129)",
+      "pid": "39",
+      "position": {
+        "x": "2900",
+        "y": "17250"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Por fin! «Realmente necesitaba irme de ahí, ya estaba harta de pasármela sentada». \n\n°textboxShow\n[[(a14)]]",
+      "links": [
+        {
+          "name": "(a14)",
+          "link": "(a14)",
+          "pid": "49"
+        }
+      ],
+      "name": "(a13)",
+      "pid": "40",
+      "position": {
+        "x": "2900",
+        "y": "2250"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Es broma! Relájate, solo estaba coqueteando con tu amiga. Deberías estar más atento, no es bueno dejar a una mujer tan linda sola en estos bares.   °sprite(16,1)   [[(a131)]]",
+      "links": [
+        {
+          "name": "(a131)",
+          "link": "(a131)",
+          "pid": "42"
+        }
+      ],
+      "name": "(a130)",
+      "pid": "41",
+      "position": {
+        "x": "2900",
+        "y": "17375"
+      }
+    },
+    {
+      "text": "°name<Raúl>!Jajaja¡ !Entiendo¡   °sprite(16,15)   [[(a132)]]",
+      "links": [
+        {
+          "name": "(a132)",
+          "link": "(a132)",
+          "pid": "43"
+        }
+      ],
+      "name": "(a131)",
+      "pid": "42",
+      "position": {
+        "x": "2900",
+        "y": "17500"
+      }
+    },
+    {
+      "text": "°name<Raúl>...   °sprite(16,15)   [[(a133)]]",
+      "links": [
+        {
+          "name": "(a133)",
+          "link": "(a133)",
+          "pid": "44"
+        }
+      ],
+      "name": "(a132)",
+      "pid": "43",
+      "position": {
+        "x": "2900",
+        "y": "17625"
+      }
+    },
+    {
+      "text": "°name<Raúl>Espera... ¿Qué dices?¿Qué pasó mientras no estaba? °sprite(2,10)   [[(a134)]]",
+      "links": [
+        {
+          "name": "(a134)",
+          "link": "(a134)",
+          "pid": "45"
+        }
+      ],
+      "name": "(a133)",
+      "pid": "44",
+      "position": {
+        "x": "2900",
+        "y": "17750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Nada de lo que te debas preocupar, está todo bien ahora ¿Cierto, Rubí?   [[(a135)]]",
+      "links": [
+        {
+          "name": "(a135)",
+          "link": "(a135)",
+          "pid": "46"
+        }
+      ],
+      "name": "(a134)",
+      "pid": "45",
+      "position": {
+        "x": "2900",
+        "y": "17875"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Así es!   °sprite(16,1)   [[(a136)]]",
+      "links": [
+        {
+          "name": "(a136)",
+          "link": "(a136)",
+          "pid": "47"
+        }
+      ],
+      "name": "(a135)",
+      "pid": "46",
+      "position": {
+        "x": "2900",
+        "y": "18000"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«Esta canción es muy buena».   °sprite(2,1)   [[(a137)]]",
+      "links": [
+        {
+          "name": "(a137)",
+          "link": "(a137)",
+          "pid": "48"
+        }
+      ],
+      "name": "(a136)",
+      "pid": "47",
+      "position": {
+        "x": "2900",
+        "y": "18125"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Podría invitar a alguno de ellos a bailar esta canción...»   °stopSkip   [[(Invitar a Rubí->aa1)]] [[(Invitar a Raúl->ab1)]] [[(No bailar->ac1)]]",
+      "links": [
+        {
+          "name": "(Invitar a Rubí",
+          "link": "aa1)",
+          "pid": "150"
+        },
+        {
+          "name": "(Invitar a Raúl",
+          "link": "ab1)",
+          "pid": "152"
+        },
+        {
+          "name": "(No bailar",
+          "link": "ac1)",
+          "pid": "154"
+        }
+      ],
+      "name": "(a137)",
+      "pid": "48",
+      "position": {
+        "x": "2900",
+        "y": "18250"
+      }
+    },
+    {
+      "text": "°name<Verónica>... «Ahora que lo pienso mejor, ...esto es malo, muy malo».\n\n[[(a15)]]",
+      "links": [
+        {
+          "name": "(a15)",
+          "link": "(a15)",
+          "pid": "50"
+        }
+      ],
+      "name": "(a14)",
+      "pid": "49",
+      "position": {
+        "x": "2900",
+        "y": "2375"
+      }
+    },
+    {
+      "text": "°name<Verónica>«¿Qué se supone que voy a hacer ahora?¿Cómo voy a pagar el alquiler este mes?»\n\n[[(a16)]]",
+      "links": [
+        {
+          "name": "(a16)",
+          "link": "(a16)",
+          "pid": "51"
+        }
+      ],
+      "name": "(a15)",
+      "pid": "50",
+      "position": {
+        "x": "2900",
+        "y": "2500"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Agh, mejor me voy a mi departamento, lamentarme a mitad de la calle no me va a servir de nada».\n\n[[(a17)]]",
+      "links": [
+        {
+          "name": "(a17)",
+          "link": "(a17)",
+          "pid": "52"
+        }
+      ],
+      "name": "(a16)",
+      "pid": "51",
+      "position": {
+        "x": "2900",
+        "y": "2625"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«No puedo dejar de pensar, esto es grave».\n\n\n°fadeBG(3)\n°BGM(1)\n\n[[(a18)]]",
+      "links": [
+        {
+          "name": "(a18)",
+          "link": "(a18)",
+          "pid": "53"
+        }
+      ],
+      "name": "(a17)",
+      "pid": "52",
+      "position": {
+        "x": "2900",
+        "y": "2750"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Cómo tan pava Verónica? Por la cresta, no sé que hacer ahora.\n\n°SFX(2)\n\n[[(a19)]]",
+      "links": [
+        {
+          "name": "(a19)",
+          "link": "(a19)",
+          "pid": "54"
+        }
+      ],
+      "name": "(a18)",
+      "pid": "53",
+      "position": {
+        "x": "2900",
+        "y": "2875"
+      }
+    },
+    {
+      "text": "°name<Voz de mujer>¡¡¡Verito!!!¡¡¡Verito!!! \n\n[[(a20)]]",
+      "links": [
+        {
+          "name": "(a20)",
+          "link": "(a20)",
+          "pid": "56"
+        }
+      ],
+      "name": "(a19)",
+      "pid": "54",
+      "position": {
+        "x": "2900",
+        "y": "3000"
+      }
+    },
+    {
+      "text": "°name<???>!!! (suena un portazo).\n\n°cameraShake\n°SFX(0)\n°sprite(30,1)\n°fadeOpacityOneSPR(0)\n[[(a3)]]",
+      "links": [
+        {
+          "name": "(a3)",
+          "link": "(a3)",
+          "pid": "66"
+        }
+      ],
+      "name": "(a2)",
+      "pid": "55",
+      "position": {
+        "x": "2900",
+        "y": "500"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Alguien está gritando mi nombre desde ese quiosco, ya sé quien es...»\n\n[[(a21)]]",
+      "links": [
+        {
+          "name": "(a21)",
+          "link": "(a21)",
+          "pid": "57"
+        }
+      ],
+      "name": "(a20)",
+      "pid": "56",
+      "position": {
+        "x": "2900",
+        "y": "3125"
+      }
+    },
+    {
+      "text": "°name<???>¡Verito, que bueno verla por aquí tan temprano! ¿Andaba simpático el jefe que la dejo salir tan temprano?\n\n\n°fadeBG(10)\n°fadeSPR(0,1)\n°fadeColorSRP(0,0)\n°fadeOpacityOneSPR(1)\n\n[[(a22)]]",
+      "links": [
+        {
+          "name": "(a22)",
+          "link": "(a22)",
+          "pid": "58"
+        }
+      ],
+      "name": "(a21)",
+      "pid": "57",
+      "position": {
+        "x": "2900",
+        "y": "3250"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Hola, Doña Carmela! ¿Cómo está? Ojalá fuese eso que dice, la verdad es que ahora mismo me acaban de echar de la pega y ando super urgida.\n\n°fadeColorSRP(0,1)\n\n[[(a23)]]",
+      "links": [
+        {
+          "name": "(a23)",
+          "link": "(a23)",
+          "pid": "59"
+        }
+      ],
+      "name": "(a22)",
+      "pid": "58",
+      "position": {
+        "x": "2900",
+        "y": "3375"
+      }
+    },
+    {
+      "text": "°name<Doña Carmela>Pucha la lesera, Verito... lamento oír eso. Pero no se urja tanto, sé que va a poder encontrar una solución, quizás ahora pueda encontrar algo relacionado con el arte, siempre anda trabajando es cuestiones diferentes, busque algo que realmente le guste.  \n\n°sprite(9,1)\n\n[[(a24)]]",
+      "links": [
+        {
+          "name": "(a24)",
+          "link": "(a24)",
+          "pid": "60"
+        }
+      ],
+      "name": "(a23)",
+      "pid": "59",
+      "position": {
+        "x": "2900",
+        "y": "3500"
+      }
+    },
+    {
+      "text": "°name<Verónica>Gracias, lo tendré en mente. Ahora iré a mi departamento a descansar un poco, así puedo aclarar un poco más mi mente para después pensar en que haré. Cuídese, más rato pasaré de nuevo a verla. \n\n°sprite(0,1)\n\n[[(a25)]]",
+      "links": [
+        {
+          "name": "(a25)",
+          "link": "(a25)",
+          "pid": "61"
+        }
+      ],
+      "name": "(a24)",
+      "pid": "60",
+      "position": {
+        "x": "2900",
+        "y": "3625"
+      }
+    },
+    {
+      "text": "°name<Doña Carmela>Cualquier cosa, yo le puedo dar una peguita aquí si necesita, ¿ya? Nos estamos viendo, cuídese mi niña.\n\n°sprite(14,1)\n\n[[(a26)]]",
+      "links": [
+        {
+          "name": "(a26)",
+          "link": "(a26)",
+          "pid": "62"
+        }
+      ],
+      "name": "(a25)",
+      "pid": "61",
+      "position": {
+        "x": "2900",
+        "y": "3750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Gracias, lo tendré en mente. Ahora iré a mi departamento a descansar un poco «con una cerveza helada si dios quiere, espero no haberme tomado la última la otra vez», así puedo aclarar un poco más mi mente para después pensar en que haré. Cuídese, más rato pasaré de nuevo a verla. \n\n[[(a27)]]",
+      "links": [
+        {
+          "name": "(a27)",
+          "link": "(a27)",
+          "pid": "63"
+        }
+      ],
+      "name": "(a26)",
+      "pid": "62",
+      "position": {
+        "x": "2900",
+        "y": "3875"
+      }
+    },
+    {
+      "text": "°name<Verónica>... \n\n°fadeBoth(4,7,0)\n°fadeOpacityOneSPR(0)\n°SFX(2)\n\n[[(a28)]]",
+      "links": [
+        {
+          "name": "(a28)",
+          "link": "(a28)",
+          "pid": "64"
+        }
+      ],
+      "name": "(a27)",
+      "pid": "63",
+      "position": {
+        "x": "2900",
+        "y": "4000"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«La entrada de este departamento siempre huele a caca de gato». (Un gato de pelaje negro aparece saltando de un árbusto)\n\n[[(a29)]]",
+      "links": [
+        {
+          "name": "(a29)",
+          "link": "(a29)",
+          "pid": "65"
+        }
+      ],
+      "name": "(a28)",
+      "pid": "64",
+      "position": {
+        "x": "2900",
+        "y": "4125"
+      }
+    },
+    {
+      "text": "°name<Gato> ¡Miau! (pasa por las piernas de Verónica).   °fadeOpacityOneSPR(1) °fadeColorSRP(7,0) °SFX(7)   [[(a30)]]",
+      "links": [
+        {
+          "name": "(a30)",
+          "link": "(a30)",
+          "pid": "67"
+        }
+      ],
+      "name": "(a29)",
+      "pid": "65",
+      "position": {
+        "x": "2900",
+        "y": "4250"
+      }
+    },
+    {
+      "text": "°name<Jefe>Verónica, gracias por la paciencia. Estaba en una entrevista con un nuevo empleado que hará un reemplazo.\n\n°fadeOpacityOneSPR(1)\n\n[[(a4)]]",
+      "links": [
+        {
+          "name": "(a4)",
+          "link": "(a4)",
+          "pid": "77"
+        }
+      ],
+      "name": "(a3)",
+      "pid": "66",
+      "position": {
+        "x": "2900",
+        "y": "650"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Y tu de dónde saliste? ¡Oye, no pases por ahí, me vas llenar de pelo!   [[(a31)]]",
+      "links": [
+        {
+          "name": "(a31)",
+          "link": "(a31)",
+          "pid": "68"
+        }
+      ],
+      "name": "(a30)",
+      "pid": "67",
+      "position": {
+        "x": "2900",
+        "y": "4375"
+      }
+    },
+    {
+      "text": "°name<Verónica>!!! (Choca con alguien).   °fadeSPR(1,0) °fadeColorSRP(1,0) °SFX(11) °cameraShake   [[(a32)]]",
+      "links": [
+        {
+          "name": "(a32)",
+          "link": "(a32)",
+          "pid": "69"
+        }
+      ],
+      "name": "(a31)",
+      "pid": "68",
+      "position": {
+        "x": "2900",
+        "y": "4500"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Disculpa! Estaba distraída con el gato... que se acaba de ir.   [[(a33)]]",
+      "links": [
+        {
+          "name": "(a33)",
+          "link": "(a33)",
+          "pid": "70"
+        }
+      ],
+      "name": "(a32)",
+      "pid": "69",
+      "position": {
+        "x": "2900",
+        "y": "4625"
+      }
+    },
+    {
+      "text": "°name<???>No te preocupes, siempre pasan por acá, ya me tiene un poco harto, pero supongo que su lindura lo recompensa. A todo esto, ¿estás bien?    [[(a34)]]",
+      "links": [
+        {
+          "name": "(a34)",
+          "link": "(a34)",
+          "pid": "71"
+        }
+      ],
+      "name": "(a33)",
+      "pid": "70",
+      "position": {
+        "x": "2900",
+        "y": "4750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Sí, tranquilo. Solamente estoy llena de pelo de gato ahora, no sé como me voy a sacar todo esto de mis pantalón, otra cuestión más por la cual estresarme hoy.    [[(a35)]]",
+      "links": [
+        {
+          "name": "(a35)",
+          "link": "(a35)",
+          "pid": "72"
+        }
+      ],
+      "name": "(a34)",
+      "pid": "71",
+      "position": {
+        "x": "2900",
+        "y": "4875"
+      }
+    },
+    {
+      "text": "°name<???>Parece que no has tenido un buen día...    [[(a36)]]",
+      "links": [
+        {
+          "name": "(a36)",
+          "link": "(a36)",
+          "pid": "73"
+        }
+      ],
+      "name": "(a35)",
+      "pid": "72",
+      "position": {
+        "x": "2900",
+        "y": "5000"
+      }
+    },
+    {
+      "text": "°name<Verónica>He tenido peores, pero sí, no es un muy bien día que digamos. Oye y tu nombre es...?   [[(a37)]]",
+      "links": [
+        {
+          "name": "(a37)",
+          "link": "(a37)",
+          "pid": "74"
+        }
+      ],
+      "name": "(a36)",
+      "pid": "73",
+      "position": {
+        "x": "2900",
+        "y": "5125"
+      }
+    },
+    {
+      "text": "°name<Raúl>¡Ah perdona! Raúl, Raúl Sandoval, pero puedes llamarme Raúl, creo que ya dije Raúl como 3 veces, jajaja. ¿Y tú?   °fadeColorSRP(1,1)   [[(a38)]]",
+      "links": [
+        {
+          "name": "(a38)",
+          "link": "(a38)",
+          "pid": "75"
+        }
+      ],
+      "name": "(a37)",
+      "pid": "74",
+      "position": {
+        "x": "2900",
+        "y": "5250"
+      }
+    },
+    {
+      "text": "°name<Verónica>4 veces si somos exactos. Yo soy Verónica, puedes llamarme Vero o cualquier otro apodo está bien. Soy prácticamente nueva en el edificio, llegue hace unas pocas semanas.   [[(a39)]]",
+      "links": [
+        {
+          "name": "(a39)",
+          "link": "(a39)",
+          "pid": "76"
+        }
+      ],
+      "name": "(a38)",
+      "pid": "75",
+      "position": {
+        "x": "2900",
+        "y": "5375"
+      }
+    },
+    {
+      "text": "°name<Raúl>Ya me lo preguntaba ¿Eres la que vive frente al residente extranjero? Lo llaman Kalo, si no me equivoco.   [[(a40)]]",
+      "links": [
+        {
+          "name": "(a40)",
+          "link": "(a40)",
+          "pid": "78"
+        }
+      ],
+      "name": "(a39)",
+      "pid": "76",
+      "position": {
+        "x": "2900",
+        "y": "5500"
+      }
+    },
+    {
+      "text": "°name<Verónica>No se preocupe jefe. ¿Para qué me necesitaba? Ya casi terminó el informe de 30 páginas que me pidió, solo me faltan unos retoques, así que si puede ser breve lo agradecería mucho.\n[[(a5)]]",
+      "links": [
+        {
+          "name": "(a5)",
+          "link": "(a5)",
+          "pid": "88"
+        }
+      ],
+      "name": "(a4)",
+      "pid": "77",
+      "position": {
+        "x": "2900",
+        "y": "800"
+      }
+    },
+    {
+      "text": "°name<Verónica>Ehhh... ¿Creo? No estoy segura, nunca lo he visto. Pero quizás me lo tope pronto, ahora tengo bastante tiempo libre...    [[(a41)]]",
+      "links": [
+        {
+          "name": "(a41)",
+          "link": "(a41)",
+          "pid": "79"
+        }
+      ],
+      "name": "(a40)",
+      "pid": "78",
+      "position": {
+        "x": "2900",
+        "y": "5625"
+      }
+    },
+    {
+      "text": "°name<Raúl>Ya veo... Oye, aprovechando que dicen que tienes tiempo, ¿te gustaría salir en la noche? Hay una inauguración de un nuevo bar en el barrio, así que podríamos ir y conversar en un lugar que no huela tanto a excremento de gato, jajaja.   [[(a42)]]",
+      "links": [
+        {
+          "name": "(a42)",
+          "link": "(a42)",
+          "pid": "80"
+        }
+      ],
+      "name": "(a41)",
+      "pid": "79",
+      "position": {
+        "x": "2900",
+        "y": "5750"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Mmm... Tengo ganas de tomar algo, me vendría bien distraerme».   °stopSkip   [[(Claro, estaría bien.-> aaF4)]] [[(Lo pensaré.-> abF4)]]",
+      "links": [
+        {
+          "name": "(Claro, estaría bien.",
+          "link": " aaF4)",
+          "pid": "2"
+        },
+        {
+          "name": "(Lo pensaré.",
+          "link": " abF4)",
+          "pid": "4"
+        }
+      ],
+      "name": "(a42)",
+      "pid": "80",
+      "position": {
+        "x": "2900",
+        "y": "5875"
+      }
+    },
+    {
+      "text": "°name<Verónica>...   °fadeBoth(5,7,0) °fadeOpacityOneSPR(0) °SFX(2)   [[(a44)]]",
+      "links": [
+        {
+          "name": "(a44)",
+          "link": "(a44)",
+          "pid": "82"
+        }
+      ],
+      "name": "(a43)",
+      "pid": "81",
+      "position": {
+        "x": "2900",
+        "y": "6250"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Raúl fue muy amable, es primera vez que lo veo ¿Su departamento estará cerca del mío?»   [[(a45)]]",
+      "links": [
+        {
+          "name": "(a45)",
+          "link": "(a45)",
+          "pid": "83"
+        }
+      ],
+      "name": "(a44)",
+      "pid": "82",
+      "position": {
+        "x": "2900",
+        "y": "6375"
+      }
+    },
+    {
+      "text": "°name<Verónica>...   °fadeBG(7) °SFX(1)   [[(a46)]]",
+      "links": [
+        {
+          "name": "(a46)",
+          "link": "(a46)",
+          "pid": "84"
+        }
+      ],
+      "name": "(a45)",
+      "pid": "83",
+      "position": {
+        "x": "2900",
+        "y": "6500"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Por fin llegué. Ahora quiero puro dormir todo el día, pero primero...»   [[(a47)]]",
+      "links": [
+        {
+          "name": "(a47)",
+          "link": "(a47)",
+          "pid": "85"
+        }
+      ],
+      "name": "(a46)",
+      "pid": "84",
+      "position": {
+        "x": "2900",
+        "y": "6625"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡A arrugar el informe y a la basura! (Arruga y tira los papeles a la basura)   °SFX(13)   [[(a48)]]",
+      "links": [
+        {
+          "name": "(a48)",
+          "link": "(a48)",
+          "pid": "86"
+        }
+      ],
+      "name": "(a47)",
+      "pid": "85",
+      "position": {
+        "x": "2900",
+        "y": "6750"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Bien! Ahora, a desestresarme pintando un rato... ¡¿Dónde dejé mi pincel?!    [[(a49)]]",
+      "links": [
+        {
+          "name": "(a49)",
+          "link": "(a49)",
+          "pid": "87"
+        }
+      ],
+      "name": "(a48)",
+      "pid": "86",
+      "position": {
+        "x": "2900",
+        "y": "6875"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Aquí! «Casi me muero del susto. Este pincel me lo regalo mi mamá hace un tiempo, es algo muy preciado para mi, pintar con el me hace sentir que estoy junto con ella...»   °sprite(37,1) °fadeOpacityOneSPR(1)     [[(a50)]]",
+      "links": [
+        {
+          "name": "(a50)",
+          "link": "(a50)",
+          "pid": "89"
+        }
+      ],
+      "name": "(a49)",
+      "pid": "87",
+      "position": {
+        "x": "2900",
+        "y": "7000"
+      }
+    },
+    {
+      "text": "°name<Jefe>¡Oh! Entiendo, pero no te tienes que preocupar más por ese informe. \n[[(a6)]]",
+      "links": [
+        {
+          "name": "(a6)",
+          "link": "(a6)",
+          "pid": "99"
+        }
+      ],
+      "name": "(a5)",
+      "pid": "88",
+      "position": {
+        "x": "2900",
+        "y": "950"
+      }
+    },
+    {
+      "text": "°name<Verónica>Hay otra cosa acá encima...   °fadeSPR(38,1) °fadeOpacityOneSPR(0)   [[(a51)]]",
+      "links": [
+        {
+          "name": "(a51)",
+          "link": "(a51)",
+          "pid": "90"
+        }
+      ],
+      "name": "(a50)",
+      "pid": "89",
+      "position": {
+        "x": "2900",
+        "y": "7125"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Un casete? ¿De quién será? (Saca su casetera para oírla).   °fadeOpacityOneSPR(1)   [[(a52)]]",
+      "links": [
+        {
+          "name": "(a52)",
+          "link": "(a52)",
+          "pid": "91"
+        }
+      ],
+      "name": "(a51)",
+      "pid": "90",
+      "position": {
+        "x": "2900",
+        "y": "7250"
+      }
+    },
+    {
+      "text": "°name<Verónica>...   °SFX(16)   [[(a53)]]",
+      "links": [
+        {
+          "name": "(a53)",
+          "link": "(a53)",
+          "pid": "92"
+        }
+      ],
+      "name": "(a52)",
+      "pid": "91",
+      "position": {
+        "x": "2900",
+        "y": "7375"
+      }
+    },
+    {
+      "text": "°name<Audio Casete>¡HOLAA VEROO! Soy Maca. Amiga te extraño un montón, no te imaginas lo horrible de frío que hace acá en el sur, ¡AMIGA SOY LITERALMENTE UN PEDAZO DE HIELO, TOI ASÍ DE RENUNCIAR A ESTA PEGA! Pero bueno, espero estés aguantando mis gritos de esta grabación.    [[(a54)]]",
+      "links": [
+        {
+          "name": "(a54)",
+          "link": "(a54)",
+          "pid": "93"
+        }
+      ],
+      "name": "(a53)",
+      "pid": "92",
+      "position": {
+        "x": "2900",
+        "y": "7500"
+      }
+    },
+    {
+      "text": "°name<Audio Casete>En fin, este es uno de mis tantos casetes que te mandaré durante estas semanas, así que anda a acostumbrándote. Quería decirte también que dentro de algunas semanas más iré a Santiago de visita, así que... ¡ESPERA POR MI!. ¡TE QUIERO MUCHO, BESOS! (termina el audio casete).    [[(a55)]]",
+      "links": [
+        {
+          "name": "(a55)",
+          "link": "(a55)",
+          "pid": "94"
+        }
+      ],
+      "name": "(a54)",
+      "pid": "93",
+      "position": {
+        "x": "2900",
+        "y": "7625"
+      }
+    },
+    {
+      "text": "°name<Verónica>...Esta mina me va a dejar sorda algún día.   [[(a56)]]",
+      "links": [
+        {
+          "name": "(a56)",
+          "link": "(a56)",
+          "pid": "95"
+        }
+      ],
+      "name": "(a55)",
+      "pid": "94",
+      "position": {
+        "x": "2900",
+        "y": "7750"
+      }
+    },
+    {
+      "text": "°name<Verónica>«La Maca es mi mejor amiga desde el liceo, estudiamos carreras diferentes, pero aún así mantuvimos el contacto, y además fue la que más me apoyo cuando dejé mi carrera por querer estudiar artes. Su voz me hace sentirme más tranquila y menos estresada ahora. Debería mandarle una carta más tarde»   °fadeOpacityOneSPR(0)   [[(a57)]]",
+      "links": [
+        {
+          "name": "(a57)",
+          "link": "(a57)",
+          "pid": "96"
+        }
+      ],
+      "name": "(a56)",
+      "pid": "95",
+      "position": {
+        "x": "2900",
+        "y": "7875"
+      }
+    },
+    {
+      "text": "°name<Verónica>Ya se quitaron las ganas de pintar, debería dormir un poco. Pondré una alarma...   [[(a58)]]",
+      "links": [
+        {
+          "name": "(a58)",
+          "link": "(a58)",
+          "pid": "97"
+        }
+      ],
+      "name": "(a57)",
+      "pid": "96",
+      "position": {
+        "x": "2900",
+        "y": "8000"
+      }
+    },
+    {
+      "text": "°name<Verónica>...   °fadeBG(27)   [[(a59)]]",
+      "links": [
+        {
+          "name": "(a59)",
+          "link": "(a59)",
+          "pid": "98"
+        }
+      ],
+      "name": "(a58)",
+      "pid": "97",
+      "position": {
+        "x": "2900",
+        "y": "8125"
+      }
+    },
+    {
+      "text": "°name<Reloj>¡PIP, PIP, PIP!   °SFX(17)   [[(a60)]]",
+      "links": [
+        {
+          "name": "(a60)",
+          "link": "(a60)",
+          "pid": "100"
+        }
+      ],
+      "name": "(a59)",
+      "pid": "98",
+      "position": {
+        "x": "2900",
+        "y": "8250"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«¿Cómo que ya no lo quiere? Habré escuchado mal».\n[[(a7)]]",
+      "links": [
+        {
+          "name": "(a7)",
+          "link": "(a7)",
+          "pid": "110"
+        }
+      ],
+      "name": "(a6)",
+      "pid": "99",
+      "position": {
+        "x": "2900",
+        "y": "1100"
+      }
+    },
+    {
+      "text": "°name<Verónica>(Apaga la alarma).    [[(a61)]]",
+      "links": [
+        {
+          "name": "(a61)",
+          "link": "(a61)",
+          "pid": "101"
+        }
+      ],
+      "name": "(a60)",
+      "pid": "100",
+      "position": {
+        "x": "2900",
+        "y": "8375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Ya son cerca de las 8... no tengo nada más que hacer. Podría alistarme para ir a tomar algo con Raúl...    [[(a62)]]",
+      "links": [
+        {
+          "name": "(a62)",
+          "link": "(a62)",
+          "pid": "102"
+        }
+      ],
+      "name": "(a61)",
+      "pid": "101",
+      "position": {
+        "x": "2900",
+        "y": "8500"
+      }
+    },
+    {
+      "text": "°name<Voz de Gato>¡Miau!    °SFX(7)   [[(a63)]]",
+      "links": [
+        {
+          "name": "(a63)",
+          "link": "(a63)",
+          "pid": "103"
+        }
+      ],
+      "name": "(a62)",
+      "pid": "102",
+      "position": {
+        "x": "2900",
+        "y": "8625"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿De dónde vino eso?   [[(a64)]]",
+      "links": [
+        {
+          "name": "(a64)",
+          "link": "(a64)",
+          "pid": "104"
+        }
+      ],
+      "name": "(a63)",
+      "pid": "103",
+      "position": {
+        "x": "2900",
+        "y": "8750"
+      }
+    },
+    {
+      "text": "°name<Voz de Gato>¡Miau!¡Miau!    °SFX(7)   [[(a65)]]",
+      "links": [
+        {
+          "name": "(a65)",
+          "link": "(a65)",
+          "pid": "105"
+        }
+      ],
+      "name": "(a64)",
+      "pid": "104",
+      "position": {
+        "x": "2900",
+        "y": "8875"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Creo que viene de la ventana».   °fadeBG(29)   [[(a66)]]",
+      "links": [
+        {
+          "name": "(a66)",
+          "link": "(a66)",
+          "pid": "106"
+        }
+      ],
+      "name": "(a65)",
+      "pid": "105",
+      "position": {
+        "x": "2900",
+        "y": "9000"
+      }
+    },
+    {
+      "text": "°name<Verónica>!!! (Abré la ventana y algo salta hacia el escritorio).   °cameraShake °fadeSPR(7,1) °fadeOpacityOneSPR(1) °fadeColorSRP(7,0)   [[(a67)]]",
+      "links": [
+        {
+          "name": "(a67)",
+          "link": "(a67)",
+          "pid": "107"
+        }
+      ],
+      "name": "(a66)",
+      "pid": "106",
+      "position": {
+        "x": "2900",
+        "y": "9125"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡¿Tú de nuevo?! ¿Qué haces en mi ventana a estas horas tan tarde?   [[(a68)]]",
+      "links": [
+        {
+          "name": "(a68)",
+          "link": "(a68)",
+          "pid": "108"
+        }
+      ],
+      "name": "(a67)",
+      "pid": "107",
+      "position": {
+        "x": "2900",
+        "y": "9250"
+      }
+    },
+    {
+      "text": "°name<Gato>Prrr... Prrr... (pasa su cabeza sobre sus manos).    °SFX(6)   [[(a69)]]",
+      "links": [
+        {
+          "name": "(a69)",
+          "link": "(a69)",
+          "pid": "109"
+        }
+      ],
+      "name": "(a68)",
+      "pid": "108",
+      "position": {
+        "x": "2900",
+        "y": "9375"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Viniste a verme solo para que te regalonee? Soy patudo tú, y mañoso también.   [[(a70)]]",
+      "links": [
+        {
+          "name": "(a70)",
+          "link": "(a70)",
+          "pid": "111"
+        }
+      ],
+      "name": "(a69)",
+      "pid": "109",
+      "position": {
+        "x": "2900",
+        "y": "9500"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Qué dijo?\n[[(a8)]]",
+      "links": [
+        {
+          "name": "(a8)",
+          "link": "(a8)",
+          "pid": "121"
+        }
+      ],
+      "name": "(a7)",
+      "pid": "110",
+      "position": {
+        "x": "2900",
+        "y": "1250"
+      }
+    },
+    {
+      "text": "°name<Gato>Prrr... Prrr...   °SFX(6)   [[(a71)]]",
+      "links": [
+        {
+          "name": "(a71)",
+          "link": "(a71)",
+          "pid": "112"
+        }
+      ],
+      "name": "(a70)",
+      "pid": "111",
+      "position": {
+        "x": "2900",
+        "y": "9625"
+      }
+    },
+    {
+      "text": "°name<Verónica>Te voy a llamar... «No sé si es macho o hembra, pero cualquier nombre está bien».   °cat   [[(a72)]]",
+      "links": [
+        {
+          "name": "(a72)",
+          "link": "(a72)",
+          "pid": "113"
+        }
+      ],
+      "name": "(a71)",
+      "pid": "112",
+      "position": {
+        "x": "2900",
+        "y": "9750"
+      }
+    },
+    {
+      "text": "°name<Catname>¿Miau?   °SFX(7) °fadeColorSRP(7,1)   [[(a73)]]",
+      "links": [
+        {
+          "name": "(a73)",
+          "link": "(a73)",
+          "pid": "114"
+        }
+      ],
+      "name": "(a72)",
+      "pid": "113",
+      "position": {
+        "x": "2900",
+        "y": "9875"
+      }
+    },
+    {
+      "text": "°name<Verónica>Vas a conquistar a cualquier gato que se te cruce ahora con ese pedazo de nombre.   [[(a74)]]",
+      "links": [
+        {
+          "name": "(a74)",
+          "link": "(a74)",
+          "pid": "115"
+        }
+      ],
+      "name": "(a73)",
+      "pid": "114",
+      "position": {
+        "x": "2900",
+        "y": "10000"
+      }
+    },
+    {
+      "text": "°name<Reloj>¡PIP, PIP, PIP!   °fadeOpacityOneSPR(0) °SFX(17)   [[(a75)]]",
+      "links": [
+        {
+          "name": "(a75)",
+          "link": "(a75)",
+          "pid": "116"
+        }
+      ],
+      "name": "(a74)",
+      "pid": "115",
+      "position": {
+        "x": "2900",
+        "y": "10125"
+      }
+    },
+    {
+      "text": "°name<Verónica>¡Cresta! Ya son casi las 8, tengo que arreglarme rápido. «Raúl debe estar esperando abajo».   [[(a76)]]",
+      "links": [
+        {
+          "name": "(a76)",
+          "link": "(a76)",
+          "pid": "117"
+        }
+      ],
+      "name": "(a75)",
+      "pid": "116",
+      "position": {
+        "x": "2900",
+        "y": "10250"
+      }
+    },
+    {
+      "text": "°name<Verónica>...(Llegan a la entrada)   °fadeBG(30) °sprite(1,2) °fadeOpacityOneSPR(1) °SFX(2)     [[(a77)]]",
+      "links": [
+        {
+          "name": "(a77)",
+          "link": "(a77)",
+          "pid": "118"
+        }
+      ],
+      "name": "(a76)",
+      "pid": "117",
+      "position": {
+        "x": "2900",
+        "y": "10375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Espero adentro haga menos frío, me estoy muriendo ahora mismo.   [[(a78)]]",
+      "links": [
+        {
+          "name": "(a78)",
+          "link": "(a78)",
+          "pid": "119"
+        }
+      ],
+      "name": "(a77)",
+      "pid": "118",
+      "position": {
+        "x": "2900",
+        "y": "10500"
+      }
+    },
+    {
+      "text": "°name<Raúl>Te ves muy bien, me gusta tu bolso, Vero. Entremos.   °sprite(15,0)   [[(a79)]]",
+      "links": [
+        {
+          "name": "(a79)",
+          "link": "(a79)",
+          "pid": "120"
+        }
+      ],
+      "name": "(a78)",
+      "pid": "119",
+      "position": {
+        "x": "2900",
+        "y": "10625"
+      }
+    },
+    {
+      "text": "°name<Verónica>...   °fadeBoth(19,1,2) °BGM(5) °textboxHide   [[(a80)]]",
+      "links": [
+        {
+          "name": "(a80)",
+          "link": "(a80)",
+          "pid": "122"
+        }
+      ],
+      "name": "(a79)",
+      "pid": "120",
+      "position": {
+        "x": "2900",
+        "y": "10750"
+      }
+    },
+    {
+      "text": "°name<Jefe>Estás despedida. El nuevo empleado del que te hablé tiene más rapidez que tú, así que tomará tu puesto. ¡Ya necesitaba más hombres en esta oficina, jajaja! Deja lo que llevas del informe encima de mi escritorio para dárselo a tu reemplazo ¿Quieres?\n[[(a9)]]",
+      "links": [
+        {
+          "name": "(a9)",
+          "link": "(a9)",
+          "pid": "132"
+        }
+      ],
+      "name": "(a8)",
+      "pid": "121",
+      "position": {
+        "x": "2900",
+        "y": "1375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Están casi todas mesas ocupadas, sentémonos aquí en la barra nomás.   °textboxShow   [[(a81)]]",
+      "links": [
+        {
+          "name": "(a81)",
+          "link": "(a81)",
+          "pid": "123"
+        }
+      ],
+      "name": "(a80)",
+      "pid": "122",
+      "position": {
+        "x": "2900",
+        "y": "10875"
+      }
+    },
+    {
+      "text": "°name<Verónica>... No veo al bartender, tendremos que esperar.   [[(a82)]]",
+      "links": [
+        {
+          "name": "(a82)",
+          "link": "(a82)",
+          "pid": "124"
+        }
+      ],
+      "name": "(a81)",
+      "pid": "123",
+      "position": {
+        "x": "2900",
+        "y": "11000"
+      }
+    },
+    {
+      "text": "°name<Raúl>Así parece. (Se acomoda en la silla).   [[(a83)]]",
+      "links": [
+        {
+          "name": "(a83)",
+          "link": "(a83)",
+          "pid": "125"
+        }
+      ],
+      "name": "(a82)",
+      "pid": "124",
+      "position": {
+        "x": "2900",
+        "y": "11125"
+      }
+    },
+    {
+      "text": "°name<Raúl>Oye y... ¿qué tal te sientes ahora? Recuerdo que dijiste que no estabas teniendo un muy buen día.   [[(a84)]]",
+      "links": [
+        {
+          "name": "(a84)",
+          "link": "(a84)",
+          "pid": "126"
+        }
+      ],
+      "name": "(a83)",
+      "pid": "125",
+      "position": {
+        "x": "2900",
+        "y": "11250"
+      }
+    },
+    {
+      "text": "°name<Verónica>«Ya casi me olvidaba que hoy me echaron».   [[(a85)]]",
+      "links": [
+        {
+          "name": "(a85)",
+          "link": "(a85)",
+          "pid": "127"
+        }
+      ],
+      "name": "(a84)",
+      "pid": "126",
+      "position": {
+        "x": "2900",
+        "y": "11375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Eh... si, descansé un rato después de que nos topamos, así que ya me siento n poco más relajada. Aun que lo estaría más si ese bartender apareciera, me estoy muriendo de sed.    [[(a86)]]",
+      "links": [
+        {
+          "name": "(a86)",
+          "link": "(a86)",
+          "pid": "128"
+        }
+      ],
+      "name": "(a85)",
+      "pid": "127",
+      "position": {
+        "x": "2900",
+        "y": "11500"
+      }
+    },
+    {
+      "text": "°name<Raúl>¿Tienes frío aún? Puedo prestarte mi chaqueta si quieres, para que no te mueras de frío como dijiste hace un rato, pero... si de sed, jajaja.   °sprite(15,2)   [[(a87)]]",
+      "links": [
+        {
+          "name": "(a87)",
+          "link": "(a87)",
+          "pid": "129"
+        }
+      ],
+      "name": "(a86)",
+      "pid": "128",
+      "position": {
+        "x": "2900",
+        "y": "11625"
+      }
+    },
+    {
+      "text": "°name<Verónica>Estoy bien, no te preocupes, no la necesito por ahora. Aunque... si sacas una jarra de cerveza de tu chaqueta, ahí si la necesito ahora mismo.   °sprite(1,2) [[(a88)]]",
+      "links": [
+        {
+          "name": "(a88)",
+          "link": "(a88)",
+          "pid": "130"
+        }
+      ],
+      "name": "(a87)",
+      "pid": "129",
+      "position": {
+        "x": "2900",
+        "y": "11750"
+      }
+    },
+    {
+      "text": "°name<Raúl>¡Jajaja! Entiendo, entiendo. Bueno, lamento decirte que no soy mago, así que vamos atener que esperar por esa rica jarra.   °sprite(15,2) [[(a89)]]",
+      "links": [
+        {
+          "name": "(a89)",
+          "link": "(a89)",
+          "pid": "131"
+        }
+      ],
+      "name": "(a88)",
+      "pid": "130",
+      "position": {
+        "x": "2900",
+        "y": "11875"
+      }
+    },
+    {
+      "text": "°name<Raúl>Oye, voy a pasar al baño y vuelvo altiro ¿Si?   °sprite(1,2) [[(a90)]]",
+      "links": [
+        {
+          "name": "(a90)",
+          "link": "(a90)",
+          "pid": "133"
+        }
+      ],
+      "name": "(a89)",
+      "pid": "131",
+      "position": {
+        "x": "2900",
+        "y": "12000"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«Sabía que este momento llegaría, pero no esperaba que fuese tan pronto».\n[[(a10)]]",
+      "links": [
+        {
+          "name": "(a10)",
+          "link": "(a10)",
+          "pid": "7"
+        }
+      ],
+      "name": "(a9)",
+      "pid": "132",
+      "position": {
+        "x": "2900",
+        "y": "1500"
+      }
+    },
+    {
+      "text": "°name<Raúl>Ya, anda nomás, te espero.   °fadeOpacityOneSPR(0)   [[(a91)]]",
+      "links": [
+        {
+          "name": "(a91)",
+          "link": "(a91)",
+          "pid": "134"
+        }
+      ],
+      "name": "(a90)",
+      "pid": "133",
+      "position": {
+        "x": "2900",
+        "y": "12125"
+      }
+    },
+    {
+      "text": "°name<Verónica>...«Debí haberle dicho que se pelara una jarra de alguna me-» (alguien la interrumpe).   [[(a92)]]",
+      "links": [
+        {
+          "name": "(a92)",
+          "link": "(a92)",
+          "pid": "135"
+        }
+      ],
+      "name": "(a91)",
+      "pid": "134",
+      "position": {
+        "x": "2900",
+        "y": "12250"
+      }
+    },
+    {
+      "text": "°name<???>¡Una jarra de cerveza extra grande para una bella mujer que acaba de ser botada por un hombre!   °fadeColorSRP(2,0) °fadeOpacityTwoSPR(1) °SFX(18)   [[(a93)]]",
+      "links": [
+        {
+          "name": "(a93)",
+          "link": "(a93)",
+          "pid": "136"
+        }
+      ],
+      "name": "(a92)",
+      "pid": "135",
+      "position": {
+        "x": "2900",
+        "y": "12375"
+      }
+    },
+    {
+      "text": "°name<Verónica>Ah... ¿Gra-gracias? «¿Será la bartender? ¿En qué momento llegó y cómo que \"BOTADA\" por un hombre?»   [[(a94)]]",
+      "links": [
+        {
+          "name": "(a94)",
+          "link": "(a94)",
+          "pid": "137"
+        }
+      ],
+      "name": "(a93)",
+      "pid": "136",
+      "position": {
+        "x": "2900",
+        "y": "12500"
+      }
+    },
+    {
+      "text": "°name<???>Un placer, si gustas otra cosa, dime.   [[(a95)]]",
+      "links": [
+        {
+          "name": "(a95)",
+          "link": "(a95)",
+          "pid": "138"
+        }
+      ],
+      "name": "(a94)",
+      "pid": "137",
+      "position": {
+        "x": "2900",
+        "y": "12625"
+      }
+    },
+    {
+      "text": "°name<???>Oye, disculpa por lo metiche, pero... ¿Ese era tu pololo? ¿El que te acaba de dejar sola?   [[(a96)]]",
+      "links": [
+        {
+          "name": "(a96)",
+          "link": "(a96)",
+          "pid": "139"
+        }
+      ],
+      "name": "(a95)",
+      "pid": "138",
+      "position": {
+        "x": "2900",
+        "y": "12750"
+      }
+    },
+    {
+      "text": "°name<Verónica>¿Raúl? Jajaja, ¡No! Lo conocí recién hoy, digamos que es un \"conocido\" de momento. Me invitó a salir.    [[(a97)]]",
+      "links": [
+        {
+          "name": "(a97)",
+          "link": "(a97)",
+          "pid": "140"
+        }
+      ],
+      "name": "(a96)",
+      "pid": "139",
+      "position": {
+        "x": "2900",
+        "y": "12875"
+      }
+    },
+    {
+      "text": "°name<???>Entonces... ¡¿Estás soltera?!    [[(a98)]]",
+      "links": [
+        {
+          "name": "(a98)",
+          "link": "(a98)",
+          "pid": "141"
+        }
+      ],
+      "name": "(a97)",
+      "pid": "140",
+      "position": {
+        "x": "2900",
+        "y": "13000"
+      }
+    },
+    {
+      "text": "°name<Verónica>Así es, soltera desde que nací.     [[(a99)]]",
+      "links": [
+        {
+          "name": "(a99)",
+          "link": "(a99)",
+          "pid": "142"
+        }
+      ],
+      "name": "(a98)",
+      "pid": "141",
+      "position": {
+        "x": "2900",
+        "y": "13125"
+      }
+    },
+    {
+      "text": "°name<Rubí>Entonces, déjame presentarme para ti, soy Rubí, la nueva bartender de este local.    °fadeColorSRP(2,1)   [[(a100)]]",
+      "links": [
+        {
+          "name": "(a100)",
+          "link": "(a100)",
+          "pid": "8"
+        }
+      ],
+      "name": "(a99)",
+      "pid": "142",
+      "position": {
+        "x": "2900",
+        "y": "13250"
+      }
+    },
+    {
+      "text": "°name<Jefe>Sus griteríos no me afectan señorita Verónica, ustedes las mujeres siempre tan histéricas, no se le puede decir nada, ni siquiera la insulté. Será mejor que se retire ahora mismo.\n\n°canSkip\n[[(a11)]]",
+      "links": [
+        {
+          "name": "(a11)",
+          "link": "(a11)",
+          "pid": "18"
+        }
+      ],
+      "name": "(aaF2)",
+      "pid": "143",
+      "position": {
+        "x": "2750",
+        "y": "1875"
+      }
+    },
+    {
+      "text": "°name<Raúl>¡Buenísima! Te espero acá mismo a las 8 entonces, para que nos vayamos juntos. Te dejo ahora entonces ¡Cuídate!    °sprite(15,0) °canSkip [[(a43)]]",
+      "links": [
+        {
+          "name": "(a43)",
+          "link": "(a43)",
+          "pid": "81"
+        }
+      ],
+      "name": "(aaF5)",
+      "pid": "144",
+      "position": {
+        "x": "2750",
+        "y": "6125"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Lindo nombre! Me alegra que mi primera clienta sea alguien tan bonita y atrevida ¡Me gusta eso!    °canSkip °sprite(1,16)   [[(a103)]]",
+      "links": [
+        {
+          "name": "(a103)",
+          "link": "(a103)",
+          "pid": "11"
+        }
+      ],
+      "name": "(aaF7)",
+      "pid": "145",
+      "position": {
+        "x": "2625",
+        "y": "13875"
+      }
+    },
+    {
+      "text": "°name<Jefe>Haga lo que quiera señorita Verónica, de todas formas ya no la necesitamos aquí.\n\n°canSkip\n[[(a11)]]",
+      "links": [
+        {
+          "name": "(a11)",
+          "link": "(a11)",
+          "pid": "18"
+        }
+      ],
+      "name": "(abF2)",
+      "pid": "146",
+      "position": {
+        "x": "3050",
+        "y": "1875"
+      }
+    },
+    {
+      "text": "°name<Raúl>Entiendo, entonces ve a descansar. Estaré aquí mismo a las 8 y esperare un rato por si quieres ir. Cuídate, espero nos veamos más seguido ahora.   °sprite(15,0) °canSkip [[(a43)]]",
+      "links": [
+        {
+          "name": "(a43)",
+          "link": "(a43)",
+          "pid": "81"
+        }
+      ],
+      "name": "(abF5)",
+      "pid": "147",
+      "position": {
+        "x": "3025",
+        "y": "6125"
+      }
+    },
+    {
+      "text": "°name<Rubí>¡Vero! Es un nombre bonito linda, sobre todo porque tu lo eres tambien.    °canSkip °sprite(1,16)   [[(a103)]]",
+      "links": [
+        {
+          "name": "(a103)",
+          "link": "(a103)",
+          "pid": "11"
+        }
+      ],
+      "name": "(abF7)",
+      "pid": "148",
+      "position": {
+        "x": "3225",
+        "y": "13875"
+      }
+    },
+    {
+      "text": "°bg(14)\n°stopSkip\n°textboxHide\n°BGM(14)\n[[(a0)]]",
+      "links": [
+        {
+          "name": "(a0)",
+          "link": "(a0)",
+          "pid": "5"
+        }
+      ],
+      "name": "Inicio/Prólogo",
+      "pid": "149",
+      "position": {
+        "x": "2900",
+        "y": "100"
+      }
+    },
+    {
+      "text": "",
+      "name": "aa1)",
+      "pid": "150",
+      "position": {
+        "x": "1025",
+        "y": "18750"
+      }
+    },
+    {
+      "text": "°name<Verónica>Tú nombre es más lindo si lo comparo con el mío. Me llamo Verónica, pero puedes decirme Vero.   °sprite(1,29) [[(aaF7)]]",
+      "links": [
+        {
+          "name": "(aaF7)",
+          "link": "(aaF7)",
+          "pid": "145"
+        }
+      ],
+      "name": "aaF6)",
+      "pid": "151",
+      "position": {
+        "x": "2625",
+        "y": "13750"
+      }
+    },
+    {
+      "text": "",
+      "name": "ab1)",
+      "pid": "152",
+      "position": {
+        "x": "2875",
+        "y": "18775"
+      }
+    },
+    {
+      "text": "°name<Verónica>Es un nombre común, no tiene mucho de especial. Soy Verónica, pero puedes decirme Vero.   [[(abF7)]]",
+      "links": [
+        {
+          "name": "(abF7)",
+          "link": "(abF7)",
+          "pid": "148"
+        }
+      ],
+      "name": "abF6)",
+      "pid": "153",
+      "position": {
+        "x": "3225",
+        "y": "13750"
+      }
+    },
+    {
+      "text": "",
+      "name": "ac1)",
+      "pid": "154",
+      "position": {
+        "x": "4800",
+        "y": "18700"
+      }
+    }
+  ],
+  "name": "Sombras en Lienzo",
+  "startnode": "149",
+  "creator": "Twine",
+  "creator-version": "2.7.1",
+  "ifid": "F2ECADF9-71C8-4A37-B6B0-A0309FA17E2F"
+}
