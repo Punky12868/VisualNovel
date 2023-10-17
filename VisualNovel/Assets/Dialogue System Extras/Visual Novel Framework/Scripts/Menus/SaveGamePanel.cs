@@ -57,6 +57,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
         public void ConfirmSave()
         {
             FindObjectOfType<QuickSaveAndLoad>().SelectSaveSlot(m_currentSlotNum);
+            FindObjectOfType<TakeAndDisplayScreenshot>().SaveButtonPhoto(m_currentSlotNum);
             /*m_saveHelper.SaveGame(m_currentSlotNum);
             GetComponent<UIPanel>().Close();*/
         }

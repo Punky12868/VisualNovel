@@ -35,6 +35,8 @@ namespace PixelCrushers
 
             public string npcName;
             public string catName;
+
+            public Image[] slotImage_holder;
         }
         public override string RecordData()
         {
@@ -45,6 +47,12 @@ namespace PixelCrushers
             data.npcName = playerStats.gameAssets.currentNpcName;
             data.catName = playerStats.gameAssets.catName;
 
+            data.slotImage_holder = playerStats.slotImage_holder;
+
+            for (int i = 0; i < data.slotImage_holder.Length; i++)
+            {
+                data.slotImage_holder[i].sprite = playerStats.slotImage_holder[i].sprite;
+            }
             foreach (var bg in playerStats.gameAssets.backgrounds)
             {
                 if (playerStats.gameAssets.currentBG.sprite.name == bg.name)
@@ -92,6 +100,7 @@ namespace PixelCrushers
 
         public override void ApplyData(string s)
         {
+            Debug.Log("AP¨PLYDATAAAAAAAAAAA BLYAAAAAAAAAAAAAAD");
             if (string.IsNullOrEmpty(s)) return; // If we didn't receive any save data, exit immediately.
             var data = SaveSystem.Deserialize<Data>(s);
             if (data == null) return; // If save data is invalid, exit immediately.
@@ -139,6 +148,13 @@ namespace PixelCrushers
 
             FindObjectOfType<Commands>().nameOutput = data.npcName;
             FindObjectOfType<GameAssets>().catName = data.catName;
+
+            //------------------------------------------------------------------------------------------- Slot Images
+
+            for (int i = 0; i < playerStats.slotImage_holder.Length; i++)
+            {
+                playerStats.slotImage_holder[i].sprite = data.slotImage_holder[i].sprite;
+            }
         }
     }
 }

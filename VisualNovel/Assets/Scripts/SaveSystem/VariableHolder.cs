@@ -10,6 +10,8 @@ public class VariableHolder : MonoBehaviour
     public Image spr_one;
     public Image spr_two;
 
+    public Image[] slotImage_holder;
+
     public GameAssets gameAssets;
     public sprOne_Fade spr_one_values;
     public sprTwo_Fade spr_two_values;
