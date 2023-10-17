@@ -64,7 +64,7 @@ public class TakeAndDisplayScreenshot : MonoBehaviour
 
         /*saveMenuPanels[panelIndex].overrideSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0f, 0f), 100f);*/
 
-        FindObjectOfType<VariableHolder>().slotImage_holder[panelIndex].overrideSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0f, 0f), 100f);
+        FindObjectOfType<VariableHolder>().slotImage_holder[panelIndex].sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0f, 0f), 100f);
         screenshotCamera.gameObject.SetActive(false);
         activateForLoop = true;
     }
@@ -91,7 +91,7 @@ public class TakeAndDisplayScreenshot : MonoBehaviour
         //SaveCameraView(screenshotCamera);
         yield return new WaitForEndOfFrame();
         hideCanvas.SetActive(true);
-        yield return new WaitForSecondsRealtime(1.5f);
+        //yield return new WaitForSecondsRealtime(1.5f);
 
         GetPhoto();
     }

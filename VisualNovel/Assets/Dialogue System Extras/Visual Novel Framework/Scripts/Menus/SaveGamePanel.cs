@@ -51,6 +51,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             {
                 //ConfirmSave();
                 FindObjectOfType<QuickSaveAndLoad>().SelectSaveSlot(slotNum);
+                FindObjectOfType<TakeAndDisplayScreenshot>().SaveButtonPhoto(m_currentSlotNum);
             }
         }
 

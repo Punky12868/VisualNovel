@@ -21048,7 +21048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenshotCamera: {fileID: 2028431363}
-  hideCanvas: {fileID: 0}
+  hideCanvas: {fileID: 771880929}
   loadMenuPanels:
   - {fileID: 515099105}
   - {fileID: 166524004}
