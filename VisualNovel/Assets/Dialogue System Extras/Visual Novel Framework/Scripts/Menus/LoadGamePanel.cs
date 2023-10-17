@@ -38,7 +38,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
 
         protected virtual void Awake()
         {
-            if (m_saveHelper == null) m_saveHelper = FindObjectOfType<SaveHelper>();
+            if (m_saveHelper == null) m_saveHelper = FindObjectOfType<QuickSaveAndLoad>().gameObject.GetComponent<SaveHelper>();
         }
 
         public virtual void SetupPanel()
@@ -81,7 +81,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
         public virtual void DeleteCurrentSlot()
         {
             m_saveHelper.DeleteSavedGame(currentSlotNum);
-            SetupPanel();
+            //SetupPanel();
         }
 
     }

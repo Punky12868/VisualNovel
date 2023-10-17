@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ClickToContinue : MonoBehaviour
 {
+    [SerializeField] SetDialogueText setHistory;
+
     [HideInInspector] public PanelFade isFade;
     [HideInInspector] public PanelFade isFadein;
 	[SerializeField] float cooldownTime;
@@ -100,6 +102,7 @@ public class ClickToContinue : MonoBehaviour
                 }
                 else
                 {
+                    setHistory.SetHistory();
                     FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                     autoCooldown = false;
                     autoCooldownLong = storedLongAuto;
@@ -113,6 +116,7 @@ public class ClickToContinue : MonoBehaviour
                 }
                 else
                 {
+                    setHistory.SetHistory();
                     FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                     autoCooldown = false;
                     autoCooldownShort = storedShortAuto;
@@ -128,6 +132,7 @@ public class ClickToContinue : MonoBehaviour
             {
                 if (!onButton)
                 {
+                    setHistory.SetHistory();
                     FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                     cooldown = true;
 
@@ -148,6 +153,7 @@ public class ClickToContinue : MonoBehaviour
             {
                 if (!waitSkip)
                 {
+                    setHistory.SetHistory();
                     FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                     skipCool = true;
                 }

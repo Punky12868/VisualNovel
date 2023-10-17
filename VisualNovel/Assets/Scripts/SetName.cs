@@ -19,10 +19,14 @@ public class SetName : MonoBehaviour
                 FindObjectOfType<GameAssets>().currentNpcName = GetComponent<TMP_Text>().text;
                 txt = FindObjectOfType<GameAssets>().currentNpcName;
 
+                SetDialogueText.SetNameOnHistory(txt);
+
                 if (FindObjectOfType<GameAssets>().currentNpcName == "Catname")
                 {
                     GetComponent<TMP_Text>().text = FindObjectOfType<GameAssets>().catName;
                     txt = GetComponent<TMP_Text>().text;
+
+                    SetDialogueText.SetNameOnHistory(txt);
                 }
 
                 //Debug.Log("SetName IsRunning");

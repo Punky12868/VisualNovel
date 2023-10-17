@@ -236,7 +236,11 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             DialogueManager.ResetDatabase(DatabaseResetOptions.KeepAllLoaded);
             SaveSystem.RestartGame(firstGameplayScene);
         }
-
+        public virtual void RestartGameCustom(int i)
+        {
+            DialogueManager.ResetDatabase(DatabaseResetOptions.KeepAllLoaded);
+            SaveSystem.RestartGame(SceneManager.GetSceneByBuildIndex(i).name);
+        }
         public virtual void LoadLevel(string levelName, int loadingSceneIndex = -1)
         {
             SaveSystem.LoadScene(levelName);

@@ -1,6 +1,7 @@
 ﻿// Copyright © Pixel Crushers. All rights reserved.
 
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PixelCrushers.DialogueSystem.VisualNovelFramework
 {
@@ -15,14 +16,14 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
         public UnityEngine.UI.Button[] slots;
 
         [Tooltip("Panel to show to confirm player wants to overwrite a saved game.")]
-        public UIPanel confirmOverwritePanel;
+        public GameObject confirmOverwritePanel;
 
         private SaveHelper m_saveHelper = null;
         private int m_currentSlotNum = -1;
 
         private void Awake()
         {
-            m_saveHelper = FindObjectOfType<SaveHelper>();
+            if (m_saveHelper == null) m_saveHelper = FindObjectOfType<QuickSaveAndLoad>().gameObject.GetComponent<SaveHelper>();
         }
 
         public void SetupPanel()
@@ -44,18 +45,20 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             m_currentSlotNum = slotNum;
             if (m_saveHelper.IsGameSavedInSlot(slotNum))
             {
-                confirmOverwritePanel.Open();
+                confirmOverwritePanel.SetActive(true);
             }
             else
             {
-                ConfirmSave();
+                //ConfirmSave();
+                FindObjectOfType<QuickSaveAndLoad>().SelectSaveSlot(slotNum);
             }
         }
 
         public void ConfirmSave()
         {
-            m_saveHelper.SaveGame(m_currentSlotNum);
-            GetComponent<UIPanel>().Close();
+            FindObjectOfType<QuickSaveAndLoad>().SelectSaveSlot(m_currentSlotNum);
+            /*m_saveHelper.SaveGame(m_currentSlotNum);
+            GetComponent<UIPanel>().Close();*/
         }
 
     }

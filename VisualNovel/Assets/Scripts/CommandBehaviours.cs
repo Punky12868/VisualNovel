@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using System;
 
@@ -25,187 +26,209 @@ public class CommandBehaviours : MonoBehaviour
     public void PlayCommandGame(string command)
     {
         switch (command)
-        {
-            case string a when a.Contains(commands.commandID + "CG"):
+            {
+                case string a when a.Contains(commands.commandID + "CG"):
 
-                FindObjectOfType<CG>().unlockCG(GetCGID() - 38);
+                    FindObjectOfType<CG>().unlockCG(GetCGID() - 38);
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "cat"):
+
+                    Instantiate(assets.catEvent, desitionPanel.transform);
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "bg"):
+
+                    assets.currentBG.sprite = assets.backgrounds[GetBackgroundID()];
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "sprite"):
+
+                    int[] i = GetSpriteID();
+                    assets.currentSpriteOne.sprite = assets.npcSrites[i[0]];
+                    assets.currentSpriteTwo.sprite = assets.npcSrites[i[1]];
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "textBoxChange"):
+
+                    assets.currentTextbox.sprite = assets.textboxSprites[GetTextBoxID()];
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "textboxShow"):
+
+                    FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 1;
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "textboxHide"):
+
+                    FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 0;
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "cameraShake"):
+
+                    CameraShake.isShaking = true;
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadein"):
+
+                    SpawnPanelFade.SpawnFadeInPanel();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadeBG"):
+
+                    fadeBG = GetFadeBG_ID();
+                    SpawnPanelFade.SpawnFadeInPanelBG();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadeSPR"):
+
+                    fadeSPR = GetFadeSPR_ID();
+                    SpawnPanelFade.SpawnFadeInPanelSPR();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadeBoth"):
+
+                    fadeBoth = GetFadeBothIDs();
+                    SpawnPanelFade.SpawnFadeInPanelBoth();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadeOpacityOneSPR"):
+
+                    FindObjectOfType<sprOne_Fade>().fadeSPRValue = GetAlphaValueOneSPR();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "fadeOpacityTwoSPR"):
+
+                    FindObjectOfType<sprTwo_Fade>().fadeSPRValue = GetAlphaValueTwoSPR();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "FadeColorSPR"):
+
+                    int[] y = GetColorValueSPR();
+                    if (y[0] == 0)
+                    {
+                        FindObjectOfType<sprOne_Fade>().colorSPRValue = y[1];
+                    }
+                    else if (y[0] == 1)
+                    {
+                        FindObjectOfType<sprTwo_Fade>().colorSPRValue = y[1];
+                    }
+                    else
+                    {
+                        Debug.Log("Invalid_SPR_ID");
+                    }
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "getSPROnePos"):
+
+                    FindObjectOfType<SpritePosition>().spriteOnePosIndex = GetSpriteOnePosition();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "getSPRTwoPos"):
+
+                    FindObjectOfType<SpritePosition>().spriteTwoPosIndex = GetSpriteTwoPosition();
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "BGM"):
+
+                    if (SceneManager.GetActiveScene().buildIndex == 1)
+                    {
+                        AudioManager.song = GetBGM();
+                        AudioManager.change_bgmToBgm = true;
+                        AudioManager.changeBGM = true;
+                    }
+                    else
+                    {
+                        Debug.Log("NO BGM FOR YOU");
+                    }
+
+                    break;
+
+                case string a when a.Contains(commands.commandID + "SPRTrack"):
+
+                    
+                    if (SceneManager.GetActiveScene().buildIndex == 1)
+                    {
+                        int[] x = GetSprTrack();
+                        if (x[0] == 1)
+                        {
+                            AudioManager.song = x[1];
+                            AudioManager.change_bgmToSpr = true;
+                            AudioManager.changeBGM = true;
+                        }
+                        else if (x[0] == 0)
+                        {
+                            AudioManager.change_sprToBgm = true;
+                            AudioManager.changeBGM = true;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("NO SPECIAL TRACK FOR YOU");
+                    }
 
                 break;
 
-            case string a when a.Contains(commands.commandID + "cat"):
+                case string a when a.Contains(commands.commandID + "SFX"):
 
-                Instantiate(assets.catEvent, desitionPanel.transform);
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "bg"):
-
-                assets.currentBG.sprite = assets.backgrounds[GetBackgroundID()];
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "sprite"):
-
-                int[] i = GetSpriteID();
-                assets.currentSpriteOne.sprite = assets.npcSrites[i[0]];
-                assets.currentSpriteTwo.sprite = assets.npcSrites[i[1]];
+                    if (SceneManager.GetActiveScene().buildIndex == 1)
+                    {
+                        audioAssets.PlaySoundFX(assets.SFX[GetSFX()]);
+                    }
+                    else
+                    {
+                            Debug.Log("NO SFX FOR YOU");
+                    }
 
                 break;
 
-            case string a when a.Contains(commands.commandID + "textBoxChange"):
+                case string a when a.Contains(commands.commandID + "end"):
 
-                assets.currentTextbox.sprite = assets.textboxSprites[GetTextBoxID()];
+                    FindObjectOfType<ClickToContinue>().enabled = false;
 
-                break;
+                    break;
 
-            case string a when a.Contains(commands.commandID + "textboxShow"):
-
-                FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 1;
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "textboxHide"):
-
-                FindObjectOfType<TextBoxOpacity>().fadeTxtBoxValue = 0;
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "cameraShake"):
-
-                CameraShake.isShaking = true;
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadein"):
-
-                SpawnPanelFade.SpawnFadeInPanel();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadeBG"):
-
-                fadeBG = GetFadeBG_ID();
-                SpawnPanelFade.SpawnFadeInPanelBG();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadeSPR"):
-
-                fadeSPR = GetFadeSPR_ID();
-                SpawnPanelFade.SpawnFadeInPanelSPR();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadeBoth"):
-
-                fadeBoth = GetFadeBothIDs();
-                SpawnPanelFade.SpawnFadeInPanelBoth();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadeOpacityOneSPR"):
-
-                FindObjectOfType<sprOne_Fade>().fadeSPRValue = GetAlphaValueOneSPR();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "fadeOpacityTwoSPR"):
-
-                FindObjectOfType<sprTwo_Fade>().fadeSPRValue = GetAlphaValueTwoSPR();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "FadeColorSPR"):
-
-                int[] y = GetColorValueSPR();
-                if (y[0] == 0)
-                {
-                    FindObjectOfType<sprOne_Fade>().colorSPRValue = y[1];
-                }
-                else if (y[0] == 1)
-                {
-                    FindObjectOfType<sprTwo_Fade>().colorSPRValue = y[1];
-                }
-                else
-                {
-                    Debug.Log("Invalid_SPR_ID");
-                }
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "getSPROnePos"):
-
-                FindObjectOfType<SpritePosition>().spriteOnePosIndex = GetSpriteOnePosition();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "getSPRTwoPos"):
-
-                FindObjectOfType<SpritePosition>().spriteTwoPosIndex = GetSpriteTwoPosition();
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "BGM"):
-
-                AudioManager.song = GetBGM();
-                AudioManager.change_bgmToBgm = true;
-                AudioManager.changeBGM = true;
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "SPRTrack"):
-
-                int[] x = GetSprTrack();
-                if (x[0] == 1)
-                {
-                    AudioManager.song = x[1];
-                    AudioManager.change_bgmToSpr = true;
-                    AudioManager.changeBGM = true;
-                }
-                else if (x[0] == 0)
-                {
-                    AudioManager.change_sprToBgm = true;
-                    AudioManager.changeBGM = true;
-                }
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "SFX"):
-
-                audioAssets.PlaySoundFX(assets.SFX[GetSFX()]);
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "end"):
-
-                FindObjectOfType<ClickToContinue>().enabled = false;
-
-                break;
-
-            case string a when a.Contains(commands.commandID + "canSkip"):
+                case string a when a.Contains(commands.commandID + "canSkip"):
 
                     FindObjectOfType<ClickToContinue>().stopSkip = false;
-                FindObjectOfType<ButtonBehaviours>().canSkip = true;
-                FindObjectOfType<ClickToContinue>().canAuto = true;
+                    FindObjectOfType<ButtonBehaviours>().canSkip = true;
+                    FindObjectOfType<ClickToContinue>().canAuto = true;
 
-                break;
+                    break;
 
-            case string a when a.Contains(commands.commandID + "stopSkip"):
+                case string a when a.Contains(commands.commandID + "stopSkip"):
 
-                FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(false);
-                FindObjectOfType<ClickToContinue>().stopSkip = true;
-                FindObjectOfType<ClickToContinue>().skip = false;
-                FindObjectOfType<SetText>().stopAuto = true;
-                FindObjectOfType<ButtonBehaviours>().canSkip = false;
-                FindObjectOfType<ClickToContinue>().canAuto = false;
-                FindObjectOfType<ClickToContinue>().autoCooldown = false;
-                Debug.Log("AAA");
+                    FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(false);
+                    FindObjectOfType<ClickToContinue>().stopSkip = true;
+                    FindObjectOfType<ClickToContinue>().skip = false;
+                    FindObjectOfType<SetText>().stopAuto = true;
+                    FindObjectOfType<ButtonBehaviours>().canSkip = false;
+                    FindObjectOfType<ClickToContinue>().canAuto = false;
+                    FindObjectOfType<ClickToContinue>().autoCooldown = false;
+                    Debug.Log("AAA");
 
-                break;
+                    break;
 
-            default:
-                break;
-        }
+                default:
+                    break;
+            }
     }
     public int GetBackgroundID()
     {

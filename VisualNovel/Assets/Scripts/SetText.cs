@@ -27,10 +27,14 @@ public class SetText : MonoBehaviour
                     txt = fixedTxt;
                     GetComponent<TMP_Text>().text = fixedTxt;
                     FindObjectOfType<ClickToContinue>().textLenght = fixedTxt.Length;
+
+                    SetDialogueText.SetTextOnHistory(txt);
                 }
                 else
                 {
                     txt = GetComponent<TMP_Text>().text;
+
+                    SetDialogueText.SetTextOnHistory(txt);
                 }
             }
         }
