@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayMusicOnAwake : MonoBehaviour
 {
-    [SerializeField] AudioSource bgm;
-    [SerializeField] AudioClip clip;
+    [SerializeField] int clip;
     private void Awake()
     {
-        bgm.clip = clip;
-        bgm.Play();
+        AudioManager.song = clip;
+        AudioManager.change_bgmToBgm = true;
+        AudioManager.changeBGM = true;
     }
 }

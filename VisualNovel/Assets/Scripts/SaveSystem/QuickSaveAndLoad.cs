@@ -17,8 +17,10 @@ public class QuickSaveAndLoad : MonoBehaviour
 	[HideInInspector] public int quickSaveSlot = 0;
 
 	public SaveHelper saveHelper;
-    //----------------LOAD-----------------
-    public void SelectLoadSlot(int slotNum)
+	public SaveGamePanel saveGamePanel;
+
+	//----------------LOAD-----------------
+	public void SelectLoadSlot(int slotNum)
 	{
 		quickSaveSlot = slotNum;
 		saveHelper.currentSlotNum = slotNum;
@@ -43,6 +45,7 @@ public class QuickSaveAndLoad : MonoBehaviour
 	public void SelectSaveSlot(int slotNum)
 	{
 		quickSaveSlot = slotNum;
+		FindObjectOfType<TakeAndDisplayScreenshot>().TakePhotoOnSave(slotNum - 1);
 		ConfirmSave();
 	}
 

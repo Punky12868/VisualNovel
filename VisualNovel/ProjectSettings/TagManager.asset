@@ -17,6 +17,7 @@ TagManager:
   - Cat
   - InputField
   - History
+  - bgm
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿// Copyright © Pixel Crushers. All rights reserved.
 
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 namespace PixelCrushers.DialogueSystem.VisualNovelFramework
@@ -11,6 +12,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
     /// </summary>
     public class LoadGamePanel : MonoBehaviour
     {
+        public Image image;
 
         [Tooltip("Game slots.")]
         public UnityEngine.UI.Button[] slots;
@@ -70,6 +72,8 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             details.text = detailsText;
             details.SetActive(true);
             onSetDetails.Invoke(detailsText);
+
+            image.sprite = FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[slotNum - 1].sprite;
         }
 
         public virtual void LoadCurrentSlot()
@@ -81,7 +85,23 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
         public virtual void DeleteCurrentSlot()
         {
             m_saveHelper.DeleteSavedGame(currentSlotNum);
+
+            FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[currentSlotNum - 1].sprite = FindObjectOfType<TakeAndDisplayScreenshot>().nullSprite;
+
+            FindObjectOfType<TakeAndDisplayScreenshot>().SaveDeletePhotoOnClick();
+
             //SetupPanel();
+        }
+        public bool CheckSlot()
+        {
+            if (m_saveHelper.IsGameSavedInSlot(currentSlotNum))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

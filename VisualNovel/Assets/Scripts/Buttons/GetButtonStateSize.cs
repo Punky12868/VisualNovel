@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class GetButtonState : Button
+public class GetButtonStateSize : Button
 {
     protected override void DoStateTransition(SelectionState state, bool instant)
     {

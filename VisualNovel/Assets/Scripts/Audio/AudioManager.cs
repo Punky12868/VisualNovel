@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
 
             if (audioFadeValue > FindObjectOfType<VolumeSettings>().bgmSlider.minValue)
             {
-                audioFadeValue -= audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue -= audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
@@ -90,7 +90,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audioFadeValue < audioFadeMaxValue)
             {
-                audioFadeValue += audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue += audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
@@ -119,7 +119,7 @@ public class AudioManager : MonoBehaviour
 
             if (audioFadeValue > FindObjectOfType<VolumeSettings>().bgmSlider.minValue)
             {
-                audioFadeValue -= audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue -= audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
@@ -139,7 +139,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audioFadeValue < audioFadeMaxValue)
             {
-                audioFadeValue += audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue += audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
@@ -168,7 +168,7 @@ public class AudioManager : MonoBehaviour
 
             if (audioFadeValue > FindObjectOfType<VolumeSettings>().bgmSlider.minValue)
             {
-                audioFadeValue -= audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue -= audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
@@ -183,7 +183,7 @@ public class AudioManager : MonoBehaviour
         {
             if (audioFadeValue < audioFadeMaxValue)
             {
-                audioFadeValue += audioFadeMultiplier * Time.fixedDeltaTime;
+                audioFadeValue += audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
             }
             else
             {
