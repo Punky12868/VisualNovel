@@ -217,6 +217,8 @@ public class CommandBehaviours : MonoBehaviour
                 FindObjectOfType<ButtonBehaviours>().canSkip = true;
                 FindObjectOfType<ClickToContinue>().canAuto = true;
 
+                FindObjectOfType<DisableButtons>().Enable();
+
                 break;
 
             case string a when a.Contains(commands.commandID + "stopSkip"):
@@ -231,6 +233,8 @@ public class CommandBehaviours : MonoBehaviour
                 AudioManager.startSkipping = false;
                 AudioManager.stopSkipping = true;
                 FeedbackContainer.skip = false;
+
+                FindObjectOfType<DisableButtons>().Disable();
                 Debug.Log("AAA");
 
                 break;

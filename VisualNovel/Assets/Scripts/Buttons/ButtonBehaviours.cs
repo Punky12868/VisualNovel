@@ -49,6 +49,12 @@ public class ButtonBehaviours : MonoBehaviour
             AudioManager.skipping = true;
             AudioManager.startSkipping = true;
             FeedbackContainer.skip = true;
+
+            FindObjectOfType<SetText>().stopAuto = true;
+            FindObjectOfType<ClickToContinue>().canAuto = false;
+            FindObjectOfType<ClickToContinue>().autoCooldown = false;
+
+            FindObjectOfType<DisableButtons>().autoFeedback.SetActive(false);
         }
     }
     public void Auto()
