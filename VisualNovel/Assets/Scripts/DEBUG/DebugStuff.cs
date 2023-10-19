@@ -28,7 +28,7 @@ public class DebugStuff : MonoBehaviour
             FindObjectOfType<ClickToContinue>().canAuto = true;
         }
 
-        if (skippingPanel != null)
+        /*if (skippingPanel != null)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -69,6 +69,6 @@ public class DebugStuff : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             FindObjectOfType<CG>().GetCG(46);
-        }
+        }*/
     }
 }
