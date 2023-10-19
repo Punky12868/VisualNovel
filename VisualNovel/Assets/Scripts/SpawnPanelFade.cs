@@ -51,7 +51,7 @@ public class SpawnPanelFade : MonoBehaviour
         }
         else if (spawnFadeOutSkip)
         {
-            Instantiate(panelFades[1], spawnPointSkip.transform);
+            Instantiate(panelFades[5], spawnPointSkip.transform);
             spawnFadeOutSkip = false;
         }
     }

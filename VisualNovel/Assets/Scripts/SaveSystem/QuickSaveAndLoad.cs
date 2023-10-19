@@ -40,6 +40,12 @@ public class QuickSaveAndLoad : MonoBehaviour
 	{
 		saveHelper.LoadGame(quickSaveSlot);
 	}
+	public void LoadCurrentSlotNowCustom(int i)
+	{
+		quickSaveSlot = i;
+		saveHelper.currentSlotNum = i;
+		saveHelper.LoadGame(i);
+	}
 	//----------------SAVE-----------------
 
 	public void SelectSaveSlot(int slotNum)

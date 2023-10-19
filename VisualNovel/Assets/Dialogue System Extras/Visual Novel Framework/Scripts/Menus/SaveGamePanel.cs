@@ -79,6 +79,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
                 else
                 {
                     FindObjectOfType<TakeAndDisplayScreenshot>().LoadPhoto();
+                    FindObjectOfType<CG>().LoadPhoto();
                 }
             }
         }

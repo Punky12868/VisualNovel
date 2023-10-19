@@ -37,12 +37,57 @@ namespace PixelCrushers
             public string catName;
 
             public Image[] slotImage_holder;
+
+            //---------------------------------------------------------------------------------------------------------------------------
+
+            public string dialogHistory;
+
+            public int bgm;
+            public int sprTrack;
+
+            //public float masterValue;
+            //public float bgmValue;
+            //public float sfxValue;
+
+            public float mixer_masterValue;
+            public float mixer_bgmValue;
+            public float mixer_sfxValue;
         }
         public override string RecordData()
         {
             var playerStats = GetComponent<VariableHolder>();
 
             var data = new Data();
+
+            data.dialogHistory = playerStats.dialogHistory.text;
+
+            foreach (var bgm in playerStats.gameAssets.BGM)
+            {
+                if (FindObjectOfType<AudioManager>().bgm.clip.name == bgm.name)
+                {
+                    data.bgm = Array.IndexOf(playerStats.gameAssets.BGM, bgm);
+                    break;
+                }
+            }
+
+            foreach (var sprTrack in playerStats.gameAssets.BGM)
+            {
+                if (FindObjectOfType<AudioManager>().bgm.clip.name == sprTrack.name)
+                {
+                    data.sprTrack = Array.IndexOf(playerStats.gameAssets.BGM, sprTrack);
+                    break;
+                }
+            }
+
+            //data.masterValue = playerStats.masterValue.value;
+            //data.bgmValue = playerStats.bgmValue.value;
+            //data.sfxValue = playerStats.sfxValue.value;
+
+            playerStats.audioMixerValues.GetFloat("Master", out data.mixer_masterValue);
+            playerStats.audioMixerValues.GetFloat("BGM", out data.mixer_bgmValue);
+            playerStats.audioMixerValues.GetFloat("SFX", out data.mixer_sfxValue);
+
+            //---------------------------------------------------------------------------------------------------------------------------
 
             data.npcName = playerStats.gameAssets.currentNpcName;
             data.catName = playerStats.gameAssets.catName;
@@ -155,6 +200,17 @@ namespace PixelCrushers
             {
                 playerStats.slotImage_holder[i].sprite = data.slotImage_holder[i].sprite;
             }
+
+            //---------------------------------------------------------------------------------------------------------------------------
+
+            playerStats.dialogHistory.text = data.dialogHistory;
+
+            FindObjectOfType<AudioManager>().bgm.clip = playerStats.gameAssets.BGM[data.bgm];
+            FindObjectOfType<AudioManager>().spr_bgm.clip = playerStats.gameAssets.BGM[data.sprTrack];
+
+            playerStats.audioMixerValues.SetFloat("Master", data.mixer_masterValue);
+            playerStats.audioMixerValues.SetFloat("BGM", data.mixer_bgmValue);
+            playerStats.audioMixerValues.SetFloat("SFX", data.mixer_sfxValue);
         }
     }
 }

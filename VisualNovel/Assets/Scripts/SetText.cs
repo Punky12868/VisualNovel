@@ -72,9 +72,11 @@ public class SetText : MonoBehaviour
         if (!stopAuto)
         {
             FindObjectOfType<ClickToContinue>().Auto();
+            Debug.Log("AUTOATUOATUAOTISAOUTIOAST");
         }
         else
         {
+            Debug.Log("AJDISOADNOIASD");
             stopAuto = false;
         }
     }

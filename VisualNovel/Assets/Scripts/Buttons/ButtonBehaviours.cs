@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ButtonBehaviours : MonoBehaviour
 {
+    [SerializeField] public TMPro.TMP_Text dialogHistory;
     [HideInInspector] public bool canSkip;
     [HideInInspector] public bool textShown;
     public float delayTime;
@@ -23,11 +24,19 @@ public class ButtonBehaviours : MonoBehaviour
     }
     public void PauseGame()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
+        FindObjectOfType<SetText>().stopAuto = true;
+        FindObjectOfType<ClickToContinue>().canAuto = false;
+        FindObjectOfType<ClickToContinue>().autoCooldown = false;
     }
     public void ResumeGame()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        FindObjectOfType<ClickToContinue>().canAuto = true;
+    }
+    public void DeleteHistory()
+    {
+        dialogHistory.text = "";
     }
     public void Skip()
     {
@@ -37,6 +46,9 @@ public class ButtonBehaviours : MonoBehaviour
             FindObjectOfType<CommandBehaviours>().isSkiping = true;
             FindObjectOfType<ClickToContinue>().skip = true;
             FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(true);
+            AudioManager.skipping = true;
+            AudioManager.startSkipping = true;
+            FeedbackContainer.skip = true;
         }
     }
     public void Auto()
@@ -46,11 +58,13 @@ public class ButtonBehaviours : MonoBehaviour
             if (!textShown)
             {
                 FindObjectOfType<ClickToContinue>().OnAuto(true);
+                FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
             }
             else
             {
                 FindObjectOfType<ClickToContinue>().OnAutoAfterTextShown(true);
-                textShown = false;
+                FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
+                //textShown = false;
             }
         }
     }

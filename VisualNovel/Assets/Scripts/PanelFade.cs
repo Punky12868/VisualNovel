@@ -14,6 +14,8 @@ public class PanelFade : MonoBehaviour
     public bool changeSPR;
     public bool changeBoth;
 
+    public bool skipPanel;
+
     ClickToContinue skip;
     public bool isSkipping;
 
@@ -118,6 +120,30 @@ public class PanelFade : MonoBehaviour
                 else
                 {
                     panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
+                }
+            }
+            else
+            {
+                if (!skipPanel)
+                {
+                    if (panel.alpha == 0)
+                    {
+
+                        Destroy(gameObject);
+                        fadeOut = false;
+                    }
+                    else if (panel.alpha < 0 + timeWindow)
+                    {
+                        panel.alpha = 0;
+                    }
+                    else if (panel.alpha < 0 + timeWindow + timeWindowFast)
+                    {
+                        panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeedFast * Time.deltaTime);
+                    }
+                    else
+                    {
+                        panel.alpha = Mathf.Lerp(panel.alpha, 0, lerpSpeed * Time.deltaTime);
+                    }
                 }
             }
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine;
 
 public class VariableHolder : MonoBehaviour
@@ -17,4 +18,15 @@ public class VariableHolder : MonoBehaviour
     public sprTwo_Fade spr_two_values;
     public TextBoxOpacity txtBox_value;
     public SpritePosition spr_pos_values;
+
+    public TMPro.TMP_Text dialogHistory;
+
+    public AudioSource currentBGM;
+    public AudioSource currentSPRTrack;
+
+    public Slider masterValue;
+    public Slider bgmValue;
+    public Slider sfxValue;
+    public AudioMixer audioMixerValues;
+
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     GameAssets assets;
-    [SerializeField] AudioSource bgm;
-    [SerializeField] AudioSource spr_bgm;
+    public AudioSource bgm;
+    public AudioSource spr_bgm;
     [SerializeField] AudioSource sfx;
 
     private float audioFadeValue;
@@ -15,6 +15,11 @@ public class AudioManager : MonoBehaviour
     public static bool change_bgmToBgm;
     public static bool change_bgmToSpr;
     public static bool change_sprToBgm;
+
+    public static bool skipping;
+
+    public static bool startSkipping;
+    public static bool stopSkipping;
 
     public float audioFadeMultiplier;
     public static bool changeBGM;
@@ -43,6 +48,11 @@ public class AudioManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (skipping)
+        {
+            IsSkipping();
+        }
+
         if (change_bgmToBgm)
         {
             BgmToBgm();
@@ -191,6 +201,45 @@ public class AudioManager : MonoBehaviour
                 changedBGM = false;
                 change_sprToBgm = false;
                 restoredAudioValue = false;
+            }
+        }
+    }
+    void IsSkipping()
+    {
+        if (restoredAudioValue)
+        {
+            FindObjectOfType<VolumeSettings>().masterSlider.value = audioFadeValue;
+            FindObjectOfType<VolumeSettings>().SetMasterVolume();
+        }
+
+        if (startSkipping)
+        {
+            if (!restoredAudioValue)
+            {
+                audioFadeMaxValue = FindObjectOfType<VolumeSettings>().masterSlider.value;
+                restoredAudioValue = true;
+            }
+
+            if (audioFadeValue > FindObjectOfType<VolumeSettings>().masterSlider.minValue)
+            {
+                audioFadeValue -= audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
+            }
+            else
+            {
+                audioFadeValue = FindObjectOfType<VolumeSettings>().masterSlider.minValue;
+            }
+        }
+        else if (stopSkipping)
+        {
+            if (audioFadeValue < audioFadeMaxValue)
+            {
+                audioFadeValue += audioFadeMultiplier * Time.fixedUnscaledDeltaTime;
+            }
+            else
+            {
+                audioFadeValue = audioFadeMaxValue;
+                stopSkipping = false;
+                skipping = false;
             }
         }
     }

@@ -12,7 +12,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
     /// </summary>
     public class LoadGamePanel : MonoBehaviour
     {
-        public Image image;
+        public Image[] image;
 
         [Tooltip("Game slots.")]
         public UnityEngine.UI.Button[] slots;
@@ -73,12 +73,14 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             details.SetActive(true);
             onSetDetails.Invoke(detailsText);
 
-            image.sprite = FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[slotNum - 1].sprite;
+            Debug.Log(slotNum + "<-- SLOTNUM");
+            image[slotNum - 1].sprite = FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[slotNum - 1].sprite;
         }
 
         public virtual void LoadCurrentSlot()
         {
-            m_saveHelper.LoadGame(currentSlotNum);
+            //m_saveHelper.LoadGame(currentSlotNum);
+            FindObjectOfType<QuickSaveAndLoad>().LoadCurrentSlotNowCustom(currentSlotNum);
             onLoadGame.Invoke();
         }
 

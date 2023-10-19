@@ -18,6 +18,7 @@ TagManager:
   - InputField
   - History
   - bgm
+  - "Men\xFA"
   layers:
   - Default
   - TransparentFX

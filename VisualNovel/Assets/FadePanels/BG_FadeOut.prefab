@@ -108,9 +108,12 @@ MonoBehaviour:
   changeBG: 0
   changeSPR: 0
   changeBoth: 0
+  skipPanel: 0
+  isSkipping: 0
   lerpSpeed: 1.5
   lerpSpeedFast: 2.5
   timeWindow: 0.05
   timeWindowFast: 0.3
   i: 0
+  y: 
   x: 0000000000000000

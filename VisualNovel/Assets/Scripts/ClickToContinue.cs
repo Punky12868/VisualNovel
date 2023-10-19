@@ -44,6 +44,8 @@ public class ClickToContinue : MonoBehaviour
     }
     private void Update()
     {
+        FeedbackContainer.auto = auto;
+
         if (stopSkip && skip)
         {
             skip = false;
@@ -171,7 +173,7 @@ public class ClickToContinue : MonoBehaviour
     }
     public void OnAuto(bool a)
     {
-        auto = a;
+        auto = true;
         Debug.Log("auto activated");
     }
     public void OnAutoAfterTextShown(bool a)
@@ -180,10 +182,10 @@ public class ClickToContinue : MonoBehaviour
         {
             if (!FindObjectOfType<SetText>().stopAuto)
             {
-                auto = a;
-                autoCooldown = true;
-                autoCooldownLong = 0;
-                autoCooldownShort = 0;
+                auto = true;
+                /*autoCooldown = true;
+                autoCooldownLong = 1;
+                autoCooldownShort = 1*/;
                 Debug.Log("auto force activated");
             }
         }
@@ -191,7 +193,7 @@ public class ClickToContinue : MonoBehaviour
         {
             if (!FindObjectOfType<SetText>().stopAuto)
             {
-                auto = a;
+                auto = true;
                 Debug.Log("auto force activated but option is on screen");
             }
         }

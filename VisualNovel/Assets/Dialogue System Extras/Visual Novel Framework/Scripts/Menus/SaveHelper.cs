@@ -194,7 +194,7 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
 
         public virtual void LoadGameNow(int slotNum)
         {
-            DialogueManager.StopConversation();
+            //DialogueManager.StopConversation();
             SaveSystem.LoadFromSlot(slotNum);
         }
 

@@ -12,6 +12,7 @@ public class ImageSlot : MonoBehaviour
     {
         imageForSingleSlot = GetComponent<Image>();
         imagePanel = FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[index - 1];
+        imageForSingleSlot.sprite = FindObjectOfType<TakeAndDisplayScreenshot>().photoDisplay[index - 1].sprite;
     }
     private void Update()
     {
