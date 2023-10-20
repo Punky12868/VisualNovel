@@ -204,6 +204,10 @@ namespace PixelCrushers.DialogueSystem.VisualNovelFramework
             {
                 LoadGame(PlayerPrefs.GetInt(GetLastSavedGameKey()));
             }
+            else
+            {
+                FindObjectOfType<TapeButtonsBehaviour>().NewGame(1);
+            }
         }
 
         public virtual void LoadCurrentSlot()

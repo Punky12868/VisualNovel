@@ -20,6 +20,10 @@ public class QuickSaveAndLoad : MonoBehaviour
 	public SaveGamePanel saveGamePanel;
 
 	//----------------LOAD-----------------
+	public void LastSavedGame()
+    {
+		saveHelper.QuickLoad();
+	}
 	public void SelectLoadSlot(int slotNum)
 	{
 		quickSaveSlot = slotNum;

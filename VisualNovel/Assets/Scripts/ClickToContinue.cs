@@ -45,6 +45,7 @@ public class ClickToContinue : MonoBehaviour
     private void Update()
     {
         FeedbackContainer.auto = auto;
+        InputEventMapping.isAuto = auto;
 
         if (stopSkip && skip)
         {

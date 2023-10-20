@@ -223,10 +223,12 @@ public class CommandBehaviours : MonoBehaviour
 
             case string a when a.Contains(commands.commandID + "stopSkip"):
 
+                InputEventMapping.isSkipping = false;
                 FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(false);
                 FindObjectOfType<ClickToContinue>().stopSkip = true;
                 FindObjectOfType<ClickToContinue>().skip = false;
                 FindObjectOfType<SetText>().stopAuto = true;
+                FindObjectOfType<ClickToContinue>().auto = false;
                 FindObjectOfType<ClickToContinue>().canAuto = false;
                 FindObjectOfType<ClickToContinue>().autoCooldown = false;
                 FindObjectOfType<ButtonBehaviours>().canSkip = false;

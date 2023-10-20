@@ -11,6 +11,14 @@ public class ButtonBehaviours : MonoBehaviour
     [HideInInspector] public bool textShown;
     public float delayTime;
     bool delay;
+
+    public float stopSkipDelay;
+    float stopSkipStoredDelay;
+    bool startSkipDelay;
+    private void Awake()
+    {
+        stopSkipStoredDelay = stopSkipDelay;
+    }
     private void Update()
     {
         if (!delay)
@@ -19,6 +27,26 @@ public class ButtonBehaviours : MonoBehaviour
             {
                 FindObjectOfType<PixelCrushers.DialogueSystem.TextAnimatorSubtitlePanel>().delayTime = delayTime;
                 delay = true;
+            }
+        }
+
+        if (startSkipDelay)
+        {
+            if (stopSkipDelay <= 0)
+            {
+                stopSkipDelay -= Time.deltaTime;
+            }
+            else
+            {
+                startSkipDelay = false;
+                stopSkipDelay = stopSkipStoredDelay;
+
+                if (canSkip)
+                {
+                    FindObjectOfType<ClickToContinue>().stopSkip = false;
+                    //FindObjectOfType<ButtonBehaviours>().canSkip = true;
+                    FindObjectOfType<ClickToContinue>().canAuto = true;
+                }
             }
         }
     }
@@ -42,6 +70,7 @@ public class ButtonBehaviours : MonoBehaviour
     {
         if (canSkip)
         {
+            InputEventMapping.isSkipping = true;
             SpawnPanelFade.SpawnFadeOutPanelSkip();
             FindObjectOfType<CommandBehaviours>().isSkiping = true;
             FindObjectOfType<ClickToContinue>().skip = true;
@@ -57,9 +86,32 @@ public class ButtonBehaviours : MonoBehaviour
             FindObjectOfType<DisableButtons>().autoFeedback.SetActive(false);
         }
     }
+    public void StopSkip()
+    {
+        startSkipDelay = true;
+
+        InputEventMapping.isSkipping = false;
+        FindObjectOfType<SpawnPanelFade>().loadingGameObject.SetActive(false);
+        FindObjectOfType<ClickToContinue>().stopSkip = true;
+        FindObjectOfType<ClickToContinue>().skip = false;
+        FindObjectOfType<SetText>().stopAuto = true;
+        //FindObjectOfType<ButtonBehaviours>().canSkip = false;
+        FindObjectOfType<ClickToContinue>().auto = false;
+        FindObjectOfType<ClickToContinue>().canAuto = false;
+        FindObjectOfType<ClickToContinue>().autoCooldown = false;
+        AudioManager.startSkipping = false;
+        AudioManager.stopSkipping = true;
+        FeedbackContainer.skip = false;
+    }
     public void Auto()
     {
-        if (!FindObjectOfType<SetText>().stopAuto)
+        if (FindObjectOfType<ClickToContinue>().auto)
+        {
+            //FindObjectOfType<SetText>().stopAuto = true;
+            FindObjectOfType<ClickToContinue>().auto = false;
+            FindObjectOfType<ClickToContinue>().autoCooldown = false;
+        }
+        else if (!FindObjectOfType<SetText>().stopAuto)
         {
             if (!textShown)
             {
@@ -72,6 +124,15 @@ public class ButtonBehaviours : MonoBehaviour
                 FindObjectOfType<StandardUIContinueButtonFastForward>().OnFastForward();
                 //textShown = false;
             }
+        }
+    }
+    public void StopAuto()
+    {
+        if (!FindObjectOfType<SetText>().stopAuto || FindObjectOfType<ClickToContinue>().auto)
+        {
+            FindObjectOfType<SetText>().stopAuto = true;
+            FindObjectOfType<ClickToContinue>().auto = false;
+            FindObjectOfType<ClickToContinue>().autoCooldown = false;
         }
     }
     /*public void SaveGame()
