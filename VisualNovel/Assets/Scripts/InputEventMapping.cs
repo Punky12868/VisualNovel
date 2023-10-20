@@ -32,7 +32,10 @@ public class InputEventMapping : MonoBehaviour
     public UnityEvent UntoggleAuto;
 
     public static bool isAuto;
-
+    private void Start()
+    {
+        Screen.SetResolution(1920, 1080, true);
+    }
     private void Update()
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == GameplayScene)

@@ -6,7 +6,9 @@ public class CameraShake : MonoBehaviour
 {
     public Transform canvasBG;
 
-    public Vector3 screenCenter;
+    public Transform screenCenterGameObject;
+
+    [HideInInspector] public Vector3 screenCenter;
 
     public Transform[] shakePoints;
     private Vector3 goTo;
@@ -25,6 +27,7 @@ public class CameraShake : MonoBehaviour
     bool right;
     private void Awake()
     {
+        screenCenter = screenCenterGameObject.position;
         goTo = screenCenter;
         storedCooldown = cooldownPerShake;
         storedDuration = shakeDuration;
@@ -32,6 +35,8 @@ public class CameraShake : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        screenCenter = screenCenterGameObject.position;
+
         if (canvasBG.position != goTo)
         {
             canvasBG.position = Vector2.Lerp(canvasBG.position, goTo, lerpSpeed * Time.fixedDeltaTime);

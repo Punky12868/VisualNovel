@@ -19,10 +19,12 @@ public class QuickSaveAndLoad : MonoBehaviour
 	public SaveHelper saveHelper;
 	public SaveGamePanel saveGamePanel;
 
+	int lastGameSaved = 6;
+
 	//----------------LOAD-----------------
 	public void LastSavedGame()
     {
-		saveHelper.QuickLoad();
+		saveHelper.LoadGame(lastGameSaved);
 	}
 	public void SelectLoadSlot(int slotNum)
 	{
@@ -54,6 +56,7 @@ public class QuickSaveAndLoad : MonoBehaviour
 
 	public void SelectSaveSlot(int slotNum)
 	{
+		lastGameSaved = slotNum;
 		quickSaveSlot = slotNum;
 		FindObjectOfType<TakeAndDisplayScreenshot>().TakePhotoOnSave(slotNum - 1);
 		ConfirmSave();
